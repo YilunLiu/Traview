@@ -1,0 +1,19 @@
+.home .buttons{
+	position: relative;
+	margin-top: 40%;
+}
+
+
+
+.home .btn{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.home .findPlace{
+	margin-top: 30%;
+}
+
+#findPlace{
+	margin-left: 10%;
+}
