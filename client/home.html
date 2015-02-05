@@ -1,16 +1,16 @@
-<head>
-	<title>Traview</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
 
 <template name="home">
-	<div class="home container">
+	<div class="home">
 			<h1 class="text-center"> Traview! </h1>
-			<div class="col-xs-offset-1 col-xs-11 row">
+			<div>
 				<div class="findPlace">
 					<input type="text" class="col-xs-7" placeholder="Enter A Place">
 					<button type="button" class="btn btn-primary" id="findPlace">Find</button>
 				</div>
+
+
+				<div class="col-ms-10" id="googleMap"></div>
+
 				<div class="buttons">
 					<button type="button" class="btn btn-success" id="writeReview">Write Reviews</button>
 					<button type="button" class="btn btn-info" id="readReview">Read Reviews</button>
