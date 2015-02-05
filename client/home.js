@@ -8,7 +8,7 @@ GoogleMaps.init(
     function(){
         var mapOptions = {
             zoom: 13,
-            mapTypeId: google.maps.MapTypeId.HYBRID
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         map = new google.maps.Map(document.getElementById("googleMap"), mapOptions); 
         var center = new google.maps.LatLng( 32.8801705, -117.232095 );
