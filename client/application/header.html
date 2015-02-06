@@ -23,16 +23,19 @@
 
 
       <ul class="nav navbar-nav">
-        {{#if currentUser}}
-          <li><a href="#">My Chats</a></li>
-        {{else}}
-          <li><a href="/sign-in">Login</a></li>
-        {{/if}}
         <li><a href="{{pathFor 'home'}}">Change Location</a></li>
         <li><a href="{{pathFor 'reviews'}}">Read Views</a></li>
         <li><a href="{{pathFor 'writeReview'}}">Write a View</a></li>
         <li><a href="{{pathFor 'help'}}">Help</a></li>
         <li><a href="{{pathFor 'contactUs'}}">Contact Us</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        {{#if currentUser}}
+          <li><a href="{{pathFor 'chatsList'}}">My Chats</a></li>
+        {{else}}
+          <li><a href="/sign-in">Login</a></li>
+        {{/if}}
         {{#if currentUser}}
           <li><a href="/sign-out">Logout</a></li>
         {{/if}}
