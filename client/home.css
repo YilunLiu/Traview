@@ -1,9 +1,13 @@
-#googleMap{
-	height: 200px;
-}
+
 
 body{
 	padding-top: 70px;
 	background: #eee;
   	color: #666666; 
+}
+
+#enter{
+	width: 90%;
+	margin-left: 5%;
+	margin-top: 2%;
 }

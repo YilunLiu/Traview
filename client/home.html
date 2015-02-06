@@ -1,21 +1,13 @@
 
 <template name="home">
 	<div class="home">
-			<h1 class="text-center"> Traview! </h1>
+			<h2 class="text-center"> Please find a place! </h2>
 			<div>
-				<div class="findPlace">
-					<input type="text" class="col-xs-7" id="addressField" placeholder="Enter A Place">
-					<button type="button" class="btn btn-primary" id="findPlace">Find</button>
-				</div>
-
-
-				<div class="col-ms-10" id="googleMap"></div>
+				{{> map}}
 				
-				<div class="buttons">
-					<button type="button" class="btn btn-success" id="writeReview">Write Reviews</button>
-					<button type="button" class="btn btn-info" id="readReview">Read Reviews</button>
-				</div>
 			</div>
+
+			<button type="button" class="btn btn-success" id="enter">Enter</button>
 
 	</div>
 </template>
