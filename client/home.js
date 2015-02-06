@@ -1,4 +1,5 @@
 Template.home.rendered = function () {
+
     GoogleMaps.init(
         {
             'sensor': true, //optional
@@ -13,9 +14,28 @@ Template.home.rendered = function () {
             map = new google.maps.Map(document.getElementById("googleMap"), mapOptions); 
             var center = new google.maps.LatLng( 32.8801705, -117.232095 );
             map.setCenter(center);
-            var marker = new google.maps.Marker({map: map, position: center})
+            marker = new google.maps.Marker({map: map, position: center})
+            geocoder = new google.maps.Geocoder();
         }
     );
-
-
 };
+
+Template.home.events({
+    'click #findPlace': function (e, template) {
+        var address = $('#addressField').val();
+        console.log(address);
+        geocoder.geocode( {'address': address}, function(result, status){
+            if (status == google.maps.GeocoderStatus.OK){
+                map.setCenter(result[0].geometry.location);
+                marker.setMap(null);
+                marker = new google.maps.Marker({
+                    map: map,
+                    position: result[0].geometry.location
+
+                });
+            } else {
+                throwError("Cannot find the address", status);
+            }
+        })
+    }
+});
