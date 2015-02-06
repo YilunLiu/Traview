@@ -1,2 +1,7 @@
 <template name="reviewsList">
+	<div name="reviews">
+		{{#each reviews}}
+			{{> reviewItem}}
+		{{/each}}
+	</div>
 </template>
