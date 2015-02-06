@@ -1,6 +1,7 @@
 <template name="reviewItem">
 	<div class="review">
-		<h3><a href="{{pathFor 'reviewPage'}}"></a>{{sentenceOne}}</h3>
-		<p> by {{author}} </p>
+			<a href="{{pathFor 'reviewPage'}}">{{sentenceOne}}</a>
+			<button type="button" class="btn btn-default" id="discussBtn">Detail</button>
+
 	</div>
 </template>
