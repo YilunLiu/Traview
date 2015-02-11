@@ -18,12 +18,32 @@ Template.map.rendered = function () {
             geocoder = new google.maps.Geocoder();
         }
     );
+
+};
+
+Template.map.created = function () {
+    var searchResult = {};
+    Session.set(searchResultKey, searchResult);
+
+    var errorField = {};
+    Session.set(errorFieldKey, errorField);;
 };
 
 Template.map.events({
     'click #findPlace': function (e, template) {
         var address = $('#addressField').val();
-        console.log(address);
+
+        if (_.isEmpty(address)){
+            var errorField = Session.get(errorFieldKey);
+            errorField.addressField = "No address entered";
+            Session.set(errorFieldKey, errorField);
+            throwError("Sorry, we are not able to locate", "Did you type a place?");
+            return;
+        } else {
+            var errorField = Session.get(errorFieldKey);
+            Session.set(errorFieldKey, _.omit(errorField,'addressField'), errorField);
+        }
+
         geocoder.geocode( {'address': address}, function(result, status){
             if (status == google.maps.GeocoderStatus.OK){
                 map.setCenter(result[0].geometry.location);
@@ -33,9 +53,27 @@ Template.map.events({
                     position: result[0].geometry.location
 
                 });
+
+                var searchResult = {
+                    location: result[0].geometry.location,
+                    name: result[0].address_components[0].long_name
+                }
+
+                Session.set(searchResultKey, searchResult);
+                
             } else {
-                throwError("Cannot find the address", status);
+                throwError("Sorry, we are not able to locate", "Did you type it correctly?");
             }
         })
+    }
+});
+
+
+Template.map.helpers({
+    classError: function (str) {
+        return !!Session.get(errorFieldKey)[str] ? 'has-error' : '';
+    },
+    errorMessage: function(str) {
+        return Session.get(errorFieldKey)[str];
     }
 });

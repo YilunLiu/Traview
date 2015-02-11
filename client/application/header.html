@@ -14,7 +14,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Traview!</a>
+      <a class="navbar-brand" href="/">Traview {{locationName}}</a>
     </div>
 
 
@@ -23,7 +23,7 @@
 
 
       <ul class="nav navbar-nav">
-        <li><a href="{{pathFor 'changeLocation'}}">Change Location</a></li>
+        <li><a href="{{pathFor 'changeLocation'}}">{{changeLocation}}</a></li>
         <li><a href="{{pathFor 'reviewsList'}}">Read Views</a></li>
         <li><a href="{{pathFor 'writeReview'}}">Write a View</a></li>
         <li><a href="{{pathFor 'help'}}">Help</a></li>

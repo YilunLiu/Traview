@@ -14,3 +14,11 @@ ian:accounts-ui-bootstrap-3
 mrt:googlemaps
 gfk:notifications
 joshowens:accounts-entry
+yogiben:autoform-file
+cfs:standard-packages
+cfs:filesystem
+cfs:s3
+cfs:gridfs
+coffeescript
+aldeed:simple-schema
+accounts-facebook
