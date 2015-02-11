@@ -54,9 +54,19 @@ Template.map.events({
 
                 });
 
+                var names = result[0].address_components[0].long_name.split(",")
+
+                infowindow = new google.maps.InfoWindow({
+                    content: result[0].formatted_address
+                })
+
+                google.maps.event.addListener(marker, 'click', function(){
+                    infowindow.open(map,marker);
+                });
+
                 var searchResult = {
                     location: result[0].geometry.location,
-                    name: result[0].address_components[0].long_name
+                    name: names[0]
                 }
 
                 Session.set(searchResultKey, searchResult);
