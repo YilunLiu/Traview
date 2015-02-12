@@ -20,3 +20,14 @@ if (Chats.find().count() === 0){
 		Chats.insert(chat);
 	}
 }
+
+if (Messages.find().count() == 0){
+	for (var i = 0; i < 10; i++){
+		var message = {
+			author: "Marcus",
+			timeCreated: "02/12/12",
+			content: "Hey there " + i
+		}
+		Messages.insert(message);
+	}
+}

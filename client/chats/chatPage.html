@@ -1,2 +1,24 @@
 <template name="chatPage">
+	<div class="messages">
+		{{#each messages}}
+			{{> messageItem}}
+		{{/each}}
+	</div>
+	<div class="input-group message-input">
+	  <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2">
+	  <span class="input-group-addon" id="basic-addon2">send</span>
+	</div>
+</template>
+
+<template name="messageItem">
+	<div class="message">
+		<img src="" class="picture">
+		<div>
+			<div class="message-content">
+				<div>{{author}}</div>
+				<div>{{content}}</div>
+			</div>
+			{{timeCreated}}
+		</div>
+	</div>
 </template>

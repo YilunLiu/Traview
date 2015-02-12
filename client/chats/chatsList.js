@@ -8,7 +8,7 @@ Template.chatsList.helpers({
 Template.chatItem.events({
 	'click .Chat': function (event, template) {
 		event.preventDefault();
-		console.log(event);
-		console.log(template);
+		
+		Router.go('chatPage');
 	}
 });
