@@ -4,21 +4,20 @@
 			{{> messageItem}}
 		{{/each}}
 	</div>
+	
 	<div class="input-group message-input">
-	  <input type="text" class="form-control" placeholder="" aria-describedby="basic-addon2">
-	  <span class="input-group-addon" id="basic-addon2">send</span>
-	</div>
+	    <input type="text" class="form-control" id="message-field" placeholder="type your message here">
+	    <span class="input-group-btn">
+	    	<button class="btn btn-default" type="button" id="send-message-btn">Send</button>
+	    </span>
+	</div><!-- /input-group -->
 </template>
 
 <template name="messageItem">
 	<div class="message">
-		<img src="" class="picture">
-		<div>
-			<div class="message-content">
-				<div>{{author}}</div>
-				<div>{{content}}</div>
-			</div>
-			{{timeCreated}}
+		<div class="message-content">
+			<div>{{author}} ({{timeCreated}}):</div>
+			<p class="col-sm-offset-4 col-sm-10">{{content}}</p>
 		</div>
 	</div>
 </template>
