@@ -1,42 +1,48 @@
 Template.messageItem.helpers({
-	otherMessage: function () {
-		return true;
+	formatedTimeCreated: function(){
+		return formatDate(this.timeCreated);
 	}
 });
 
 Template.chatPage.helpers({
 	messages: function(){
-		return Messages.find();
+		return this.messages;
 	}
 });
 
 Template.chatPage.rendered = function () {
-	$("#message-field").keypress(function(e){
-		if (e.keyCode == '13'){
-			e.preventDefault();
-			sendMessage();
-		}
-	});
-};
+	Meteor.setTimeout(function(){
+		window.scrollTo(0,document.body.scrollHeight);
+	}, 500);
+}
 
 Template.chatPage.events({
-	'click #send-message-btn': function (e) {
+	'click #send-message-btn': function (e, template) {
 		e.preventDefault();
-		sendMessage();
-	}	
+		sendMessage(template.data._id);
+	},
+	'keypress #message-field': function(e, template){
+		if (e.keyCode == '13'){
+			e.preventDefault();
+			sendMessage(template.data._id);
+		}
+	}
 });
 
-var sendMessage = function(){
+var sendMessage = function(chatId){
 	var content = $('#message-field').val();
 	if (content){
 		var message = {
 			content: content,
-			timeCreated: new Date(),
+			timeCreated: moment().toISOString(),
 			author: Meteor.user().username
 		};
-		Messages.insert(message);
+		insertMessage(message, chatId);
 		$('#message-field').val('');
-		window.scrollTo(0,document.body.scrollHeight);
+
+		Meteor.setTimeout( function(){
+			window.scrollTo(0,document.body.scrollHeight);
+		}, 100);
 	}
 	else{
 		return;
