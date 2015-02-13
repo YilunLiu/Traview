@@ -1,0 +1,23 @@
+<template name="chatPage">
+	<div class="messages">
+		{{#each messages}}
+			{{> messageItem}}
+		{{/each}}
+	</div>
+	
+	<div class="input-group message-input">
+	    <input type="text" class="form-control" id="message-field" placeholder="type your message here">
+	    <span class="input-group-btn">
+	    	<button class="btn btn-default" type="button" id="send-message-btn">Send</button>
+	    </span>
+	</div><!-- /input-group -->
+</template>
+
+<template name="messageItem">
+	<div class="message">
+		<div class="message-content">
+			<div>{{author}} ({{formatedTimeCreated}}):</div>
+			<p>{{content}}</p>
+		</div>
+	</div>
+</template>

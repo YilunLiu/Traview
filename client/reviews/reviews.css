@@ -1,0 +1,69 @@
+.review {
+  background: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); 
+}
+
+
+
+.review {
+  /* For modern browsers */
+  /* For IE 6/7 (trigger hasLayout) */
+  *zoom: 1;
+  position: relative;
+  opacity: 1; 
+}
+
+.review:before, .review:after {
+  content: "";
+  display: table; 
+}
+
+.review:after {
+  clear: both; 
+}
+
+
+.review.invisible {
+  opacity: 0; 
+}
+
+
+.review.instant {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none; 
+}
+
+
+.review.animate{
+  -webkit-transition: all 300ms 0ms;
+  -webkit-transition-delay: ease-in;
+  -moz-transition: all 300ms 0ms ease-in;
+  -o-transition: all 300ms 0ms ease-in;
+  transition: all 300ms 0ms ease-in; 
+}
+
+.review .review-content {
+  float: left; 
+}
+
+#discussBtn{
+  float: right;
+}
+
+
+
+
+
+
+

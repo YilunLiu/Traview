@@ -1,5 +1,5 @@
-Template.home.events({
-	'click #enter': function (e) {
+Template.changeLocation.events({
+	'click #changeBtn': function (e) {
 		e.preventDefault();
 
 		var searchResult = Session.get(searchResultKey);
@@ -10,5 +10,17 @@ Template.home.events({
 			return ;
 		}
 		Router.go('reviewsList');
+
+	}
+});
+
+Template.changeLocation.helpers({
+	changeOrSet: function () {
+		if (Session.get(locationValueKey)){
+			return "Change";
+		}
+		else {
+			return "Set";
+		}
 	}
 });
