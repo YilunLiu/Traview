@@ -25,7 +25,9 @@
       <ul class="nav navbar-nav">
         <li><a href="{{pathFor 'changeLocation'}}">{{changeLocation}}</a></li>
         <li><a href="{{pathFor 'reviewsList'}}">Read Reviews</a></li>
+        {{#if currentUser}}
         <li><a href="{{pathFor 'writeReview'}}">Write a Review</a></li>
+        {{/if}}
         <li><a href="{{pathFor 'help'}}">Help</a></li>
         <li><a href="{{pathFor 'contactUs'}}">Contact Us</a></li>
       </ul>

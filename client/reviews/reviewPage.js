@@ -22,7 +22,11 @@ Template.reviewPage.helpers({
 Template.reviewPage.events({
 	'click button': function (e, template) {
 		e.preventDefault();
-
-		Chats.findOne({$or: [{userA: this.authorId}, {userB: this.authorId}]});
+		if(!Meteor.userId()){
+			Router.go('/sign-in');
+			return;
+		}
+		var chatId = Chats.findOne({$or: [{userA: this.authorId}, {userB: this.authorId}]})._id;
+		Router.go('chat',{_id: chatId});
 	}
 });
