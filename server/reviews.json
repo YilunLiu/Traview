@@ -1,62 +1,62 @@
-[
+	[
 	{
 		"title": "Awesome Trip To Yosemite",
-		"author": "",
-		"pictureUrl": "",
+		"authorId": "",
+		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
 		"latLng": {},
-		"tags":["pretty","beautiful"],
+		"tags":["Pretty","Beautiful"],
 		"sentences": {
-			"food": "soso",
-			"view": "nice",
-			"tip": "none"
+			"Tail": "We hiked up Mist Trail to Vernal Falls, stopped for lunch, then headed up Nevada Falls to die.",
+			"Food": "No neck tie wearing bears or tasty pic-a-nic baskets lying around, but this place is awesome.",
+			"Tip": "There is such a huge difference between my visits in June 2008 and August 2014"
 		}
 	},
 	{
 		"title": "No winter travel",
-		"author": "",
-		"pictureUrl": "",
+		"authorId": "",
+		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
 		"latLng": {},
-		"tags":["cold","dangerous"],
+		"tags":["Cold","Dangerous"],
 		"sentences": {
-			"food": "TAT",
-			"view": "not so bad",
-			"tip": "dont go in winter"
+			"Food": "TAT",
+			"Overall": "Disappointingly pointless and heart-breakingly awful.",
+			"Tip": "dont go in winter"
 		}
 	},
 	{
 		"title": "Good in Spring",
-		"author": "",
-		"pictureUrl": "",
+		"authorId": "",
+		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
 		"latLng": {},
-		"tags":["wondergoagain","beautiful"],
+		"tags":["WonderGoAgain","Beautiful"],
 		"sentences": {
-			"food": "soso",
-			"view": "nice",
-			"tip": "drive there"
+			"Tail": "Three of the best trails for me 1) Half Dome 2) Upper Yosemite Fall 3) Four Mile Trai",
+			"View": "The giant sequoias were amazing as I got to literally crawl through the hollow bark of a fallen one. I left my oakleys because I got so caught up in the coolness! ",
+			"Tip": "Trust me, that's one of the best parts."
 		}
 	},
 		{
 		"title": "High School Field Trip ",
-		"author": "",
-		"pictureUrl": "",
+		"authorId": "",
+		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
 		"latLng": {},
-		"tags":["fun","camp"],
+		"tags":["Fun","Camp"],
 		"sentences": {
-			"food": "we cooked",
-			"view": "a lot of photos taken",
-			"tip": "go with group"
+			"Food": "we cooked",
+			"View": "a lot of photos taken",
+			"Tip": "go with group"
 		}
 	},
 	{
 		"title": "Didn't go",
-		"author": "",
-		"pictureUrl": "",
+		"authorId": "",
+		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
 		"latLng": {},
 		"tags":["wannago",":D"],
 		"sentences": {
-			"food": "don't know",
-			"view": "don't know",
-			"tip": "none"
+			"Food": "don't know",
+			"View": "don't know",
+			"Tip": "none"
 		}
 	}
-]
+];

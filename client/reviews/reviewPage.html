@@ -2,11 +2,18 @@
 	<div class="reviewPage">
 		<h4>{{title}}</h4>
 		<img src="{{pictureUrl}}">
-		<div>Tags: TagA TagB</div>
-？
+		<div class="tags">Tags: {{getTags}}</div>
+		{{#each sentencesArray}}
+			{{> sentence}}
+		{{/each}}
 	</div>
+	<button type="button" class="btn btn-primary" id="chatBtn">Chat</button>
+
 </template>
 
 <template name="sentence">
-
+	<div class="sentence">
+		<div class="key">{{key}}:</div>
+		<p class="content">{{content}}</p>
+	</div>
 </template>

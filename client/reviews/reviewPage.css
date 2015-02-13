@@ -12,3 +12,25 @@
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
+.reviewPage .tags{
+	margin-top: 10px;
+}
+
+.sentence {
+	margin-top: 10px;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #333;
+	padding-top: 5px;
+
+}
+
+.sentence p {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+
+#chatBtn {
+	width: 100%;
+}
