@@ -82,4 +82,20 @@ if (Meteor.users.find().count() === 0){
 		timeCreated: moment().subtract(2,'minutes').toISOString()
 	}
 	insertMessage(message,chatId);
+
+	if (Reviews.find().count() === 0){
+		for (var i in reviews){
+			var review = reviews[i];
+			review.authorId = AragornId;
+			review.author = userAragorn.username;
+			review.createdTime = moment().toISOString();
+			review.latLng = {
+               "lat" : 37.8651011,
+               "lng" : -119.5383294
+            }
+
+            Reviews.insert(review);
+		} 
+	}
+
 }

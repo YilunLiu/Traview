@@ -1,10 +1,8 @@
-Reviews = new Mongo.Collection('reviews');
-
-reviews = [
+[
 	{
 		"title": "Awesome Trip To Yosemite",
-		"authorId": "",
-		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
+		"author": "",
+		"pictureUrl": "",
 		"latLng": {},
 		"tags":["pretty","beautiful"],
 		"sentences": {
@@ -15,8 +13,8 @@ reviews = [
 	},
 	{
 		"title": "No winter travel",
-		"authorId": "",
-		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
+		"author": "",
+		"pictureUrl": "",
 		"latLng": {},
 		"tags":["cold","dangerous"],
 		"sentences": {
@@ -27,8 +25,8 @@ reviews = [
 	},
 	{
 		"title": "Good in Spring",
-		"authorId": "",
-		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
+		"author": "",
+		"pictureUrl": "",
 		"latLng": {},
 		"tags":["wondergoagain","beautiful"],
 		"sentences": {
@@ -39,8 +37,8 @@ reviews = [
 	},
 		{
 		"title": "High School Field Trip ",
-		"authorId": "",
-		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
+		"author": "",
+		"pictureUrl": "",
 		"latLng": {},
 		"tags":["fun","camp"],
 		"sentences": {
@@ -51,8 +49,8 @@ reviews = [
 	},
 	{
 		"title": "Didn't go",
-		"authorId": "",
-		"pictureUrl": "http://images.nationalgeographic.com/wpf/media-live/photos/000/020/cache/yosemite-deep-valley_2013_600x450.jpg",
+		"author": "",
+		"pictureUrl": "",
 		"latLng": {},
 		"tags":["wannago",":D"],
 		"sentences": {
@@ -61,4 +59,4 @@ reviews = [
 			"tip": "none"
 		}
 	}
-];
+]

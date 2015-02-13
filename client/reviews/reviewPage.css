@@ -1,0 +1,14 @@
+.reviewPage img{
+	width: 100%;
+	height: auto;
+}
+
+.reviewPage h4 {
+	width: 80%;
+	height: auto;
+}
+
+.reviewPage{
+	padding-left: 10px;
+	padding-right: 10px;
+}
