@@ -29,10 +29,8 @@
 	bottom: 0px;
 }
 
-.message hr{
-	color: #000;
-}
 
 .message-content p{
 	padding-bottom: 10px;
+	padding-left: 20px;
 }
