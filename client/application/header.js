@@ -1,8 +1,3 @@
-Template.header.rendered = function () {
-	$('.navbar-collapse a').click(function(){
-        $(".navbar-collapse").collapse('hide');
-    });
-};
 
 Template.header.helpers({
 	locationName: function () {
@@ -20,5 +15,11 @@ Template.header.helpers({
 		} else {
 			return "Set Location"
 		}
+	}
+});
+
+Template.header.events({
+	'click a': function () {
+		$(".navbar-collapse").collapse('hide');
 	}
 });
