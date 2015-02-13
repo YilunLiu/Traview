@@ -1,6 +1,3 @@
-Meteor.publish('reviews',function(){
-	return Reviews.find();
-})
 
 Meteor.publish('myChats',function(userId){
 	return Chats.find({
@@ -24,3 +21,15 @@ Meteor.publish('users',function(){
 	});
 })
 
+
+Meteor.publish('reviews', function(){
+	return Reviews.find({},{
+		authorname: 1,
+		title: 1,
+		timeCreated: 1
+	});
+});
+
+Meteor.publish('oneReview', function(reviewId){
+	return Reviews.find({_id: reviewId});
+});

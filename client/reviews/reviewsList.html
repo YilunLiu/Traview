@@ -5,3 +5,11 @@
 		{{/each}}
 	</div>
 </template>
+
+<template name="reviewItem">
+	<div class="review">
+			<a href="{{pathFor 'review'}}">{{title}}</a>
+			by {{author}} at {{modifiedCreatedTime}}
+			<button type="button" class="btn btn-default" id="detailBtn">Detail</button>
+	</div>
+</template>
