@@ -1,0 +1,35 @@
+<template name = "menu">
+	<div class="ui left thin sidebar vertical menu">
+		<div class="item">
+			<img class="ui tiny circular image" src="{{randomPictureUrl}}">
+			<h5> Hi {{currentUsername}} </h5>
+		</div>
+
+		<div class="item">
+			Reviews
+			<div class="menu">
+				<a class= "item" href="{{pathFor 'changeLocation'}}">{{changeLocation}}</a>
+		        <a class = "item" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
+		        {{#if currentUser}}
+		        <a class="item" href="{{pathFor 'writeReview'}}">Write a Review</a>
+		        {{/if}}
+		    </div>
+    	</div>
+
+
+        {{#if currentUser}}
+          <a class="item" href="{{pathFor 'chatsList'}}">My Chats</a>
+        {{else}}
+          <a class="item" href="/sign-in">Login</a>
+        {{/if}}
+
+        <a class="item" href="{{pathFor 'help'}}">FAQs</a>
+        <a class="item" href="{{pathFor 'contactUs'}}">Contact Us</a>
+
+
+        {{#if currentUser}}
+          <a class="item" href="/sign-out">Logout</a>
+        {{/if}}
+
+	</div>
+</template>

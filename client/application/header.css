@@ -1,0 +1,16 @@
+.header{
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: 100%;
+	background: #eee;
+	border-bottom-style: solid;
+	border-bottom-color: #ccc;
+	height: 50px;
+}
+
+.content.icon {
+	float: left;;
+	margin-left: 10px;
+	margin-top: 10px;
+}

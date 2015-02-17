@@ -10,8 +10,8 @@
 
     <div class="input-group">
   		<span class="input-group-addon" id="basic-addon1">Title</span>
-  		<input type="text" class="form-control" placeholder="Type! Type! Type!" aria-describedby="basic-addon1" maxlength="80">
-	</div>
+  		<input type="text" class="form-control" placeholder="Type! Type! Type!" aria-describedby="basic-addon1" maxlength="80" id="titleField">
+	  </div>
 
     &nbsp;
 
@@ -19,28 +19,16 @@
 
     &nbsp;
 
-	<div class="btn-group" role="group" aria-label="...">
-  		<!-- <button type="button" class="btn btn-default">Add Your Pictures</button> -->
+	<!-- <div class="btn-group" role="group" aria-label="...">
+  		<button type="button" class="btn btn-default">Add Your Pictures</button>
       <span class="btn btn-default btn-file">
       Add Your Pictures <input type="file">
       </span>
-	</div>	
+	</div> -->	
+  {{> upload_bootstrap }}
 
 	<h3><span class="label label-success">Tag Your Post</span></h3>
 
-	&nbsp;
-
-	<div class="input-group">
-  		<span class="input-group-addon" id="basic-addon1">Tag 1</span>
-  		<input type="text" class="form-control" placeholder="Type your own tag!" aria-describedby="basic-addon1" maxlength="15">
-	</div>
-
-	&nbsp;
-
-	<div class="input-group">
-  		<span class="input-group-addon" id="basic-addon1">Tag 2</span>
-  		<input type="text" class="form-control" placeholder="Type your own tag!" aria-describedby="basic-addon1" maxlength="15">
-	</div>
 
 
 
@@ -52,18 +40,16 @@
 	<div class="row">
    		<div class="col-lg-6">
    			<div class="input-group">
-     			<div class="input-group-btn">
-        			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdown1">Such as <span class="caret"></span></button>
-        			<ul class="dropdown-menu" role="menu">
-          			<li><a href="#" tag="1">Food</a></li>
-          			<li><a href="#" tag="1">Hotel</a></li>
-          			<li><a href="#" tag="1">Transportation</a></li>
-          			<li><a href="#" tag="1">Shopping</a></li>
-          			<li><a href="#" tag="1">Others</a></li>
-          			<li class="divider"></li>
-        			</ul>
-      			</div><!-- /btn-group -->
-      			<input type="text" class="form-control" placeholder="Type what you want to say!" aria-label="..." maxlength="200">
+     			  <span class="input-group-btn select">
+            <select class="btn">
+                  <option>Food</option>
+                  <option>Hotel</option>
+                  <option>Transportation</option>
+                  <option>Shopping</option>
+                  <option>Others</option>
+              </select>
+            </span>
+      			<input type="text" class="form-control" placeholder="Type what you want to say!" aria-label="..." maxlength="200" id="sentenceField1">
     		</div><!-- /input-group -->
     	</div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
@@ -73,22 +59,20 @@
 	&nbsp;
 
 	<div class="row">
-   		<div class="col-lg-6">
+      <div class="col-lg-6">
    			<div class="input-group">
-     			<div class="input-group-btn">
-        			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdown2">Such as <span class="caret"></span></button>
-        			<ul class="dropdown-menu" role="menu">
-          			<li><a href="#" tag="2">Food</a></li>
-          			<li><a href="#" tag="2">Hotel</a></li>
-          			<li><a href="#" tag="2">Transportation</a></li>
-          			<li><a href="#" tag="2">Shopping</a></li>
-          			<li><a href="#" tag="2">Others</a></li>
-          			<li class="divider"></li>
-        			</ul>
-      			</div><!-- /btn-group -->
-      			<input type="text" class="form-control" placeholder="Type what you want to say!" aria-label="..." maxlength="200">
+     			<span class="input-group-btn select">
+            <select class="btn">
+                  <option>Food</option>
+                  <option>Hotel</option>
+                  <option>Transportation</option>
+                  <option>Shopping</option>
+                  <option>Others</option>
+              </select>
+          </span>
+      		<input type="text" class="form-control" placeholder="Type what you want to say! (optional)" aria-label="..." maxlength="200" id="sentenceField2">
     		</div><!-- /input-group -->
-    	</div><!-- /.col-lg-6 -->
+      </div>
     </div><!-- /.row -->
 
 	&nbsp;
@@ -96,18 +80,16 @@
 	<div class="row">
    		<div class="col-lg-6">
    			<div class="input-group">
-     			<div class="input-group-btn">
-        			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" id="dropdown3">Such as <span class="caret"></span></button>
-        			<ul class="dropdown-menu" role="menu">
-          			<li><a href="#" tag="3">Food</a></li>
-          			<li><a href="#" tag="3">Hotel</a></li>
-          			<li><a href="#" tag="3">Transportation</a></li>
-          			<li><a href="#" tag="3">Shopping</a></li>
-          			<li><a href="#" tag="3">Others</a></li>
-          			<li class="divider"></li>
-        			</ul>
-      			</div><!-- /btn-group -->
-      			<input type="text" class="form-control" placeholder="Type what you want to say!" aria-label="..." maxlength="200">
+     			<span class="input-group-btn select">
+            <select class="btn">
+                  <option>Food</option>
+                  <option>Hotel</option>
+                  <option>Transportation</option>
+                  <option>Shopping</option>
+                  <option>Others</option>
+              </select>
+            </span>
+      			<input type="text" class="form-control" placeholder="Type what you want to say! (optional)" aria-label="..." maxlength="200" id="sentenceField3">
     		</div><!-- /input-group -->
     	</div><!-- /.col-lg-6 -->
     </div><!-- /.row -->    
@@ -117,11 +99,10 @@
 	<!-- {{> afFieldInput name="picture" label="Choose file" remove-label="Remove"}} -->
 
 
-	<div class="btn-group postBtn" role="group" aria-label="...">
+	<div class="btn-group" id="postBtn" role="group" aria-label="...">
   		<button type="button" class="btn btn-default">Post!</button>
-	</div>	
-
-
-
+	</div>
 
 </template>
+
+

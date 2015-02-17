@@ -23,3 +23,9 @@
     cursor: inherit;
     display: block;
 }
+
+.select {
+    height: 30px;
+    border-style: solid;
+    border-color: #ddd;
+}

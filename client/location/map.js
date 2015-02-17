@@ -37,7 +37,6 @@ Template.map.events({
             var errorField = Session.get(errorFieldKey);
             errorField.addressField = "No address entered";
             Session.set(errorFieldKey, errorField);
-            throwError("Sorry, we are not able to locate", "Did you type a place?");
             return;
         } else {
             var errorField = Session.get(errorFieldKey);

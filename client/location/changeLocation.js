@@ -4,7 +4,7 @@ Template.changeLocation.events({
 
 		var searchResult = Session.get(searchResultKey);
 		if (!_.isEmpty(searchResult)){
-			Session.set(locationValueKey, searchResult);
+			Session.setPersistent(locationValueKey, searchResult);
 		} else {
 			throwError("Where are you going, bro?", "Please enter a location and search it :)");
 			return ;

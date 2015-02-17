@@ -1,4 +1,3 @@
-
 Template.header.helpers({
 	locationName: function () {
 		var location = Session.get(locationValueKey);
@@ -21,5 +20,8 @@ Template.header.helpers({
 Template.header.events({
 	'click a': function () {
 		$(".navbar-collapse").collapse('hide');
+	},
+	'click .content.icon': function(){
+		$('.left.sidebar').sidebar('toggle',{left: 'overlay'});
 	}
 });
