@@ -1,88 +1,97 @@
 <template name = "writeReview">
 	
-  <form class="ui form">
-    <div class="category1" id="#category1">
-        <div class=" field">
-          <label>Category</label>
-          <div class="ui selection dropdown">
-            <input type="hidden" name="category">
-            <div class="default text">Such As...</div>
-            <i class="dropdown icon"></i>
-            <div class="menu">
-              <div class="item" data-value="Food">Food</div>
-              <div class="item" data-value="Hotel">Hotel</div>
-              <div class="item" data-value="Transportation">Transportation</div>
-              <div class="item" data-value="Scenery">Scenery</div>
-              <div class="item" data-value="Expanse">Cost(5 means lowest cost)</div>
-              <div class="item" data-value="Other">Other</div>
+  <div class="write-review">
+    <form class="ui form">
+      <div class="field">
+        <label>Title</label>
+        <input type="text" name="title" id="title-field" placeholder="Title here" maxlength="20">
+      </div>
+
+      <div class="category1" id="#category1">
+          <div class=" field">
+            <label>Category</label>
+            <div class="ui selection dropdown">
+              <input type="hidden" name="category">
+              <div class="default text">Such As...</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" data-value="Food">Food</div>
+                <div class="item" data-value="Hotel">Hotel</div>
+                <div class="item" data-value="Transportation">Transportation</div>
+                <div class="item" data-value="Scenery">Scenery</div>
+                <div class="item" data-value="Expanse">Cost(5 means lowest cost)</div>
+                <div class="item" data-value="Other">Other</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class= "field">
-          <label>Rating</label>
-          <div class="ui star rating" data-rating="5"></div>
-        </div>
+          <div class= "field">
+            <label>Rating</label>
+            <div class="ui star rating" data-rating="5"></div>
+          </div>
 
-        <div class="field">
-          <label>Comment</label>
-          <input type="text" name="comment" placeholder="Your Feelings About This Trip" maxlength="80">
-        </div>
+          <div class="field">
+            <label>Comment</label>
+            <textarea rows="2" name="comment" id="comment-area" placeholder="Your Feelings About This Trip" maxlength="200" ></textarea>
+          </div>
 
-    </div>
-
-
-
-    <div class="field">
-      <label>Your Tags</label>
-      {{#each tags}}
-        {{> tag}}
-      {{/each}}
-      <div class="ui icon input">
-        <input type="text" name="tag" id="tag-field" placeholder="Add a tag..." maxlength="15">
-        <i class="add icon"></i>
       </div>
-    </div>
 
 
 
-    <div>
-        <label for="file" class="ui icon button">
-            <i class="file icon"></i>
-            Upload A Picture</label>
-        <input type="file" id="file" style="display:none">
-    </div>
-
-
-    <div class="ui button">
-      Cancel
-    </div>
-    <div class="ui button submit">
-      Post
-    </div> 
+      <div class="field">
+        <label>Your Tags</label>
+        {{#each tags}}
+          {{> tag}}
+        {{/each}}
+        <div class="ui icon input">
+          <input type="text" name="tag" id="tag-field" placeholder="Add a tag..." maxlength="15">
+          <i class="add icon"></i>
+        </div>
+      </div>
 
 
 
+      <div class="field">
+          <label for="file" class="ui icon button">
+              <i class="file icon"></i>
+              Upload A Picture</label>
+          <input type="file" id="file" style="display:none">
+      </div>
+
+
+      <div class="two fields">
+        <div class="ui button field">
+          Cancel
+        </div>
+        <div class="ui button submit field">
+          Post
+        </div> 
+      </div>
 
 
 
 
-<!--     <div class="category2" id="#category2">
-      <div class="ui divider"></div>
-      {{> categoryInput}}
-    </div>
-    <div class="category3" id="#category3">
-      <div class="ui divider"></div>
-      {{> categoryInput}}
-    </div>
-
-    <div class="ui button" id="addBtn">
-      Add A Category
-    </div>
-
-    <div class="ui divider"></div> -->
 
 
-  </form>
+
+  <!--     <div class="category2" id="#category2">
+        <div class="ui divider"></div>
+        {{> categoryInput}}
+      </div>
+      <div class="category3" id="#category3">
+        <div class="ui divider"></div>
+        {{> categoryInput}}
+      </div>
+
+      <div class="ui button" id="addBtn">
+        Add A Category
+      </div>
+
+      <div class="ui divider"></div> -->
+
+
+    </form>
+  </div>
 
 
 </template>
