@@ -1,3 +1,6 @@
+Template.header.rendered = function () {
+};
+
 Template.header.helpers({
 	locationName: function () {
 		var location = Session.get(locationValueKey);
@@ -14,6 +17,9 @@ Template.header.helpers({
 		} else {
 			return "Set Location"
 		}
+	},
+	title: function(){
+		return Session.get('title');
 	}
 });
 

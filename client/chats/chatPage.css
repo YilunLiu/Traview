@@ -16,16 +16,8 @@
 	height: auto;
 }
 
-.messages{
-	padding-bottom: 40px;
-}
-
-
 
 .message-input{
-	position:fixed;
-	left: 10px;
-	right: 20px;
 	bottom: 0px;
 }
 

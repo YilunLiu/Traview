@@ -1,3 +1,7 @@
+Template.changeLocation.rendered = function () {
+	Session.setTemp('title','Change Location');
+};
+
 Template.changeLocation.events({
 	'click #changeBtn': function (e) {
 		e.preventDefault();

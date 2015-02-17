@@ -1,11 +1,10 @@
-.header{
-	position: fixed;
+.top-header{
 	top: 0px;
 	right: 0px;
 	width: 100%;
 	background: #eee;
 	border-bottom-style: solid;
-	border-bottom-color: #ccc;
+	border-bottom-color: #fff;
 	height: 50px;
 }
 
@@ -13,4 +12,12 @@
 	float: left;;
 	margin-left: 10px;
 	margin-top: 10px;
+}
+
+.top-header + div{
+	margin-top: 50px;
+}
+
+.ui.sticky.fixed + div {
+	margin-top: 50px;
 }

@@ -1,8 +1,10 @@
 <template name="layout">
 	{{> menu}}
 	<div class="pusher">
+		<div class="ui sticky">
+			{{> notifications}}
+		</div>
 		{{> header}}
-		{{> notifications}}
 		{{> yield}}
 	</div>
 </template>

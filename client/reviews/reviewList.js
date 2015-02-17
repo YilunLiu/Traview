@@ -1,3 +1,7 @@
+Template.reviewsList.rendered = function () {
+	Session.set('title', 'Read Reviews');
+};
+
 Template.reviewItem.helpers({
 	modifiedCreatedTime: function () {
 		return formatDate(this.createdTime);

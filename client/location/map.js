@@ -26,10 +26,10 @@ Template.map.rendered = function () {
             var markerInfo = Session.get(locationValueKey);
             if (markerInfo){
                 var location = new google.maps.LatLng(markerInfo.location.k,markerInfo.location.D)
-                infowindow = new google.maps.InfoWindow({
+                var infowindow = new google.maps.InfoWindow({
                     content: markerInfo.name
                 })
-                marker = new google.maps.Marker({map: map, position: location});
+                var marker = new google.maps.Marker({map: map, position: location});
                 google.maps.event.addListener(marker, 'click', function(){
                     infowindow.open(map,marker);
                 });
@@ -69,7 +69,7 @@ Template.map.events({
                 if (marker){
                     marker.setMap(null);
                 }
-                marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     map: map,
                     position: result[0].geometry.location
 
@@ -77,7 +77,7 @@ Template.map.events({
 
                 var names = result[0].address_components[0].long_name.split(",")
 
-                infowindow = new google.maps.InfoWindow({
+                var infowindow = new google.maps.InfoWindow({
                     content: result[0].formatted_address
                 })
 
@@ -90,7 +90,7 @@ Template.map.events({
                     name: names[0]
                 }
 
-                Session.set(searchResultKey, searchResult);
+                Session.setTemp(searchResultKey, searchResult);
                 
             } else {
                 throwError("Sorry, we are not able to locate", "Did you type it correctly?");

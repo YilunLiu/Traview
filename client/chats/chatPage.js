@@ -14,6 +14,8 @@ Template.chatPage.rendered = function () {
 	Meteor.setTimeout(function(){
 		window.scrollTo(0,document.body.scrollHeight);
 	}, 500);
+
+	Session.setTemp('title','My Chats');
 }
 
 Template.chatPage.events({
