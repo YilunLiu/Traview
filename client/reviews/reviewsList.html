@@ -1,15 +1,102 @@
 <template name="reviewsList">
-	<div name="reviews container">
-		{{#each reviews}}
-			{{> reviewItem}}
-		{{/each}}
+	{{>reviewMenu}}
+	{{#each reviews}}
+		{{> reviewItem}}
+	{{/each}}
+</template>
+
+<template name="reviewMenu">
+	<div class="review-menu">
+		<div class="category">
+			<label>Category</label>
+			<a class="ui dropdown icon button labled floating">
+				<i class="filter icon"></i>
+				<span class="text">Category</span>
+				<div class="menu">
+					<div class="header">
+						<i class="tags icon"></i>
+						Filter by Category
+					</div>
+					<div class="divider"></div>
+					<div class="item">
+						All
+					</div>
+					<div class="item">
+						Food
+					</div>
+					<div class="item">
+						Hotel
+					</div>
+					<div class="item">
+						Transportation
+					</div>
+					<div class="item">
+						Cost
+					</div>
+					<div class="item">
+						Other
+					</div>
+				</div>
+			</a>
+		</div>
+		<div class="sort">
+			<label>Sorted By:</label>
+			<a class="ui dropdown icon button labled right floating">
+				<span class="text">Category</span>
+				<div class="menu">
+					<div class="item">
+						Highest Rating
+					</div>
+					<div class="item">
+						Lowest Rating
+					</div>
+					<div class="item">
+						Most Recent
+					</div>
+					<div class="item">
+						oldestest
+					</div>
+				</div>
+			</a>
+		</div>
 	</div>
 </template>
 
 <template name="reviewItem">
 	<div class="review">
-			<a href="{{pathFor 'review'}}">{{title}}</a>
-			by {{author}} at {{modifiedCreatedTime}}
-			<button type="button" class="btn btn-default" id="detailBtn">Detail</button>
+		<div class="image">
+			<img src="{{imageUrl}}">
+		</div>
+
+		<div class="content">
+			<div class="title">
+				{{title}}
+			</div>
+			<div class="ui star rating" data-rating="3">
+			</div>
+			<div class="meta">
+				by {{author}} {{modifiedCreatedTime}} 
+			</div>
+			<div class="description">
+				afnoanco wafoz nocna ons ozcns ionfqow ncozcinowan ci zo n
+			</div>
+			<div class="extra">
+				<div class="tag">
+					{{#with categoryTag}}
+						{{> reviewTag}}
+					{{/with}}
+					{{#each tags}}
+						{{> reviewTag}}
+					{{/each}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+</template>
+
+<template name="reviewTag">
+	<div class="tiny ui label">
+		{{this}}
 	</div>
 </template>
