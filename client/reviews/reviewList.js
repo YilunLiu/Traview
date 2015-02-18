@@ -9,11 +9,19 @@ Template.reviewItem.helpers({
 	},
 	categoryTag: function() {
 		return this.category;
+	},
+	modifiedComment: function() {
+		if (this.comment.length > 80){
+			return this.comment.substr(0,80)+"..."
+		}
+		else{
+			return this.comment;
+		}
 	}
 });
 
 Template.reviewItem.events({
-	'click #detailBtn': function (e, template) {
+	'click .review': function (e, template) {
 		e.preventDefault();
 		Router.go('review',{_id: this._id});
 	}
@@ -24,10 +32,10 @@ Template.reviewItem.events({
 Template.reviewItem.rendered = function () {
 
 	this.$('.ui.star.rating').rating({
-		rating: 3,
-		maxRating: 3
+		initialRating: this.data.rating,
+		maxRating: this.data.rating
 	});
-	this.$('ui.star.rating').rating("disbale");
+	this.$('.ui.star.rating').rating('disable');
 };
 
 Template.reviewMenu.rendered = function () {
