@@ -1,26 +1,15 @@
+Template.reviewPage.rendered = function () {
+	$('#header').hide();
+};
+
 Template.reviewPage.helpers({
-	sentencesArray: function () {
-		var sentencesArray = [];
-		for (var key in this.sentences ){
-			var sentence = {
-				key : key,
-				content: this.sentences[key]
-			}
-			sentencesArray.push(sentence);
-		}
-		return sentencesArray;
-	},
-	getTags: function(){
-		var tagsArray = [];
-		for (var i in this.tags){
-			tagsArray.push(this.tags[i]);
-		}
-		return tagsArray.join(' ');
+	modifiedCreatedTime: function(){
+		return formatDate(this.createdTime);
 	}
 });
 
 Template.reviewPage.events({
-	'click button': function (e, template) {
+	'click #chat-btn': function (e, template) {
 		e.preventDefault();
 		if(!Meteor.userId()){
 			Router.go('/sign-in');
@@ -28,5 +17,14 @@ Template.reviewPage.events({
 		}
 		var chatId = Chats.findOne({$or: [{userA: this.authorId}, {userB: this.authorId}]})._id;
 		Router.go('chat',{_id: chatId});
+		$('#header').show();
 	}
 });
+
+
+Template.reviewPageRating.rendered = function () {
+	this.$('.ui.star.rating').rating({
+		initialRating: this.data,
+		maxRating: this.data
+	});
+};
