@@ -11,8 +11,10 @@ Template.reviewItem.helpers({
 		return this.category;
 	},
 	modifiedComment: function() {
-		if (this.comment.length > 80){
-			return this.comment.substr(0,80)+"..."
+		if (this.comment.length > 60){
+			return this.comment.substr(0,60)+"..."
+		} else if (this.comment.length == 0){
+			return "No comment here";
 		}
 		else{
 			return this.comment;
