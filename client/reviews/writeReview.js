@@ -3,8 +3,10 @@ Template.writeReview.rendered = function () {
 	uploadedFile = {};
 	Session.setTemp(errorFieldKey,errorField);
 	Session.setTemp(uploadedFileKey,uploadedFile);
-	Session.setTemp('categoryNumber',1);
 	Session.setTemp('tags', []);
+	Session.setTemp('error',{});
+
+	Template.writeReview.uploadedFile = {};
 
 	Session.setTemp('title','Write A Review');
 
@@ -37,6 +39,49 @@ Template.writeReview.events({
 			e.preventDefault();
 			Template.writeReview.addTag($('#tag-field').val());
 		}
+	},
+	'change #file': function(e, template){
+		e.preventDefault();
+		var chooseBtn = $('.ui.icon.button.choose');
+		var appendText = "";
+		if (e.target.files.length != 0){
+			appendText = " (" + e.target.files.length + " file is chosen)"
+		}
+		chooseBtn.html(" <i class='file icon'></i> Choose A Picture" + appendText);
+
+	},
+	'click .ui.button.upload': function(e, template){
+		e.preventDefault();
+		var uploadedFile = Template.writeReview.uploadedFile;
+		if (_.isEmpty(uploadedFile)){		
+			var file = $('#file')[0].files[0];
+			if (!file){
+				throwError('Please select a picture to upload');
+				return;
+				
+			} else{
+				var newFile = new FS.File(file);
+				newFile.metadata = {owner: Meteor.userId()};
+				Images.insert(newFile, function(err, fileObj){
+					if (err) {
+						throwError("Upload image unsuccessfully");
+						return;
+					}
+					Template.writeReview.uploadedFile = fileObj;
+					throwError("upload successfully(need change color)");
+					console.log(e);
+					$(e.target).text('Cancel');
+				});
+			}
+		} else {
+			Template.writeReview.uploadedFile = {};
+			Images.remove({_id: uploadedFile._id});
+			$(e.target).text('Upload');
+			
+		}
+	},
+	'click submit': function(e,template){
+		//TODO
 	}
 });
 

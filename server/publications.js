@@ -33,3 +33,7 @@ Meteor.publish('reviews', function(){
 Meteor.publish('oneReview', function(reviewId){
 	return Reviews.find({_id: reviewId});
 });
+
+Meteor.publish('images', function(){
+	return Images.find();
+})

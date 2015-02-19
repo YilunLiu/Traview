@@ -1,0 +1,12 @@
+<template name="images">
+	{{#each images}}
+		{{> image}}
+	{{/each}}
+</template>
+
+
+<template name="image">
+	<div>
+        <a href="{{this.url}}" target="_blank"><img src="{{this.url store='images'}}" alt="" class="thumbnail" /></a>
+      </div>
+</template>

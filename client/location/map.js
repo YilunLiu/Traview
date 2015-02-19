@@ -93,7 +93,7 @@ Template.map.events({
                 Session.setTemp(searchResultKey, searchResult);
                 
             } else {
-                throwError("Sorry, we are not able to locate", "Did you type it correctly?");
+                throwError("No such place found. Did you type it correctly?");
             }
         })
     }

@@ -18,6 +18,11 @@ Template.reviewPage.events({
 		var chatId = Chats.findOne({$or: [{userA: this.authorId}, {userB: this.authorId}]})._id;
 		Router.go('chat',{_id: chatId});
 		$('#header').show();
+	},
+	'click #backBtn' : function(e, template){
+		e.preventDefault();
+		Router.go('reviewsList');
+		$('#header').show();
 	}
 });
 

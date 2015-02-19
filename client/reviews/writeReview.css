@@ -1,3 +1,23 @@
 #comment-area{
     height: 100px;
 }
+
+
+.ui.button.upload{
+	display: inline-block;
+	width: 19%;
+	margin-right: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	float: right;
+	overflow: hidden;
+
+}
+
+.ui.icon.button.choose{
+	display: inline-block;
+	margin-right: 0px;
+	width: 79.5%;
+	padding-left: 0px;
+	padding-right: 0px;
+}

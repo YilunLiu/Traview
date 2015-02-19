@@ -1,7 +1,5 @@
 Meteor.startup(function () {
-    _.extend(Notifications.defaultOptions, {
-        timeout: 2000
-    });
+    
 
     AccountsEntry.config({
 	    homeRoute: '/reviewsList',                   // mandatory - path to redirect to after sign-out
