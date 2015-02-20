@@ -172,9 +172,10 @@ Template.writeReview.helpers({
 		return Session.get('tags');
 	},
 	errorClass: function(field){
-		if (!!Session.get('errors')){
-			return "";
+		if (!Session.get('errors')){
+			return '';
 		}
+
 		return !!Session.get('errors')[field] ? 'error' : '';
 	}
 });

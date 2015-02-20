@@ -13,8 +13,9 @@ Template.changeLocation.events({
 			throwError("Please enter a location and search it :)");
 			return ;
 		}
-		Router.go('reviewsList');
 
+		Meteor.setTimeout(function() {Router.go('reviewsList');
+		}, 500);
 	}
 });
 

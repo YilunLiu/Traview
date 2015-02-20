@@ -64,9 +64,11 @@
 
 <template name="reviewItem">
 	<div class="review">
-		<div class="image">
-			<img src="{{imageUrl}}">
-		</div>
+		{{#with imageFile}}
+			<div class="image">
+				<img src="{{this.url store='images'}}">
+			</div>
+		{{/with}}
 
 		<div class="content">
 			<div class="title">

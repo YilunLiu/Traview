@@ -83,9 +83,18 @@ if (Meteor.users.find().count() === 0){
 	}
 	insertMessage(message,chatId);
 
+
 	if (Reviews.find().count() === 0){
 		for (var i in reviews){
 			var review = reviews[i];
+			Images.insert(review.imageUrl, function(err, fileObj){
+				if (err){
+					return;
+				}
+				review.image = fileObj._id;
+				Images.update({_id: fileObj._id}, {$set: {'metadata.loc': [-119.53832940000001, 37.8651011], 'metadata.owner': AragornId}});
+			})
+
 			review.authorId = AragornId;
 			review.author = userAragorn.username;
 			review.createdTime = moment().toISOString();

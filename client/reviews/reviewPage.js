@@ -8,6 +8,9 @@ Template.reviewPage.helpers({
 	},
 	otherReview: function(){
 		return this.authorId != Meteor.userId();
+	},
+	imageObject: function(){
+		return Images.findOne(this.image);
 	}
 });
 

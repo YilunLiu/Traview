@@ -29,7 +29,8 @@ Meteor.publish('reviews', function(loc){
 })
 
 Meteor.publish('oneReview', function(reviewId){
-	return Reviews.find({_id: reviewId});
+	var review = Reviews.findOne(reviewId);
+	return [Reviews.find({_id: reviewId}), Images.find({_id: review.image})];
 });
 
 Meteor.publish('images', function(){

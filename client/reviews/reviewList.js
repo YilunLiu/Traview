@@ -19,6 +19,9 @@ Template.reviewItem.helpers({
 		else{
 			return this.comment;
 		}
+	},
+	imageFile: function(){
+		return Images.findOne(this.image);
 	}
 });
 
