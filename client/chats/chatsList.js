@@ -3,7 +3,9 @@ Template.chatsList.helpers({
 		return Chats.find();
 	}
 });
-
+Template.chatsList.rendered = function(){
+	Session.set('title', 'My Chats');
+}
 
 Template.chatItem.events({
 	'click .Chat': function (event, template) {

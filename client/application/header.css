@@ -1,23 +1,20 @@
-.top-header{
-	top: 0px;
-	right: 0px;
+.topHeader{
 	width: 100%;
-	background: #eee;
+	height: 40px;
+	position: relative;
+	top: 0;
+	left: 0;
 	border-bottom-style: solid;
-	border-bottom-color: #fff;
-	height: 50px;
+	border-width: 1px;
+	border-color: #444;
 }
 
-.content.icon {
-	float: left;;
-	margin-left: 10px;
-	margin-top: 10px;
+.topHeader .left{
+	display: inline-block;
+	margin-left: 5px;
+	margin-top: 5px;
 }
 
-.top-header + div{
-	margin-top: 50px;
-}
-
-.ui.sticky.fixed + div {
-	margin-top: 50px;
+.topHeader .center{
+	display: inline-block;
 }
