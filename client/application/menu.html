@@ -11,11 +11,14 @@
 		<div class="item">
 			Reviews
 			<div class="menu">
-				<a class= "item" href="{{pathFor 'changeLocation'}}">{{  changeLocation}}</a>
-		        <a class = "item" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
-		        {{#if currentUser}}
-		        <a class="item" href="{{pathFor 'writeReview'}}">Write a Review</a>
-		        {{/if}}
+				<a class= "item" href="{{pathFor 'changeLocation'}}">{{changeLocation}}</a>
+				{{#if hasLocation}}
+			        <a class = "item" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
+			        {{#if currentUser}}
+			        	<a class="item" href="{{pathFor 'writeReview'}}">Write a Review</a>
+			        {{/if}}
+			    {{/if}}
+
 		    </div>
     	</div>
 

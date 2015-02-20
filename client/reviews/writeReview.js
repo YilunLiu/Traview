@@ -9,7 +9,7 @@ Template.writeReview.rendered = function () {
 
 	Template.writeReview.uploadedFile = {};
 
-	Session.setTemp('title','Write A Review');
+	Session.setTemp('title','Write a Review');
 
 	this.$('.category2').hide();
 	this.$('.category3').hide();

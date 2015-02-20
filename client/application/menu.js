@@ -14,7 +14,7 @@ Template.menu.helpers({
 	},
 	locationName: function () {
 		var location = Session.get(locationValueKey);
-		if (location){
+		if (_.isEmpty(location)){
 			return "(at "+location.name+")";
 		} else {
 			return "";
@@ -22,11 +22,19 @@ Template.menu.helpers({
 	},
 	changeLocation: function(){
 		var location = Session.get(locationValueKey);
-		if (location){
+		if (_.isEmpty(location)){
 			return "Change Location";
 		} else {
 			return "Set Location"
 		}
+	},
+	hasLocation: function(){
+		var location = Session.get(locationValueKey);
+		if (_.isEmpty(location)){
+			return false;
+		} else {
+			return true;
+		} 
 	}
 });
 
