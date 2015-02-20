@@ -64,6 +64,7 @@ Template.reviewItem.events({
 
 
 
+
 Template.reviewItem.rendered = function () {
 
 	this.$('.ui.star.rating').rating({
