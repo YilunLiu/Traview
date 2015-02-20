@@ -1,7 +1,37 @@
 Template.reviewsList.rendered = function () {
 	Session.set('title', 'Read Reviews');
-
+	Session.set('sort','Oldest');
+	Session.set('category','All');
 };
+
+Template.reviewsList.helpers({
+	sortedFilteredReviews: function () {
+		var sort = Session.get('sort');
+		var category = Session.get('category');
+
+		var filter;
+		if (category == "All"){
+			filter = {};
+		} else {
+			filter = {category : category};
+		}
+
+
+
+		var sortOrder;
+		if (sort === 'Oldest'){
+			sortOrder = {createdTime : 1};
+		} else if (sort === 'Most Recent'){
+			sortOrder = {createdTime : -1};
+		} else if (sort === 'Highest Rating'){
+			sortOrder = {rating: 1};
+		} else if (sort === 'Lowest Rating'){
+			sortOrder = {rating: -1};
+		}
+
+		return Reviews.find(filter, {sort: sortOrder});
+	}
+});
 
 Template.reviewItem.helpers({
 	modifiedCreatedTime: function () {
@@ -45,4 +75,14 @@ Template.reviewItem.rendered = function () {
 
 Template.reviewMenu.rendered = function () {
 	this.$('.dropdown').dropdown();
+	this.$('.category .dropdown').dropdown({
+		onChange: function(val,text){
+			Session.set('category',text);
+		}
+	});
+	this.$('.sort .dropdown').dropdown({
+		onChange: function(val,text){
+			Session.set('sort',text);
+		}
+	});
 };
