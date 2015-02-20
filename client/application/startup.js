@@ -9,8 +9,7 @@ Meteor.startup(function () {
 	    extraSignUpFields: []
 	});
 
-    Uploader.finished = function(fileInfo, templateContext) {
-    	Session.setTemp(uploadedFileKey,templateContext);
-  	}
+    Session.clear();
+
 
 });

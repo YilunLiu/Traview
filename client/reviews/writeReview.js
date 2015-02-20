@@ -66,15 +66,16 @@ Template.writeReview.events({
 				
 			} else{
 				var newFile = new FS.File(file);
-				newFile.metadata = {owner: Meteor.userId()};
+				var location = Session.get(locationValueKey);
+
+				newFile.metadata = {owner: Meteor.userId(), loc: location.loc};
 				Images.insert(newFile, function(err, fileObj){
 					if (err) {
 						throwError("Upload image unsuccessfully");
 						return;
 					}
 					Template.writeReview.uploadedFile = fileObj;
-					throwError("upload successfully(need change color)");
-					console.log(e);
+					sendSuccess("Picture Uploaded");
 					$(e.target).text('Cancel');
 				});
 			}
