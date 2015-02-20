@@ -12,3 +12,8 @@ Template.home.events({
 		Router.go('reviewsList');
 	}
 });
+
+
+Template.home.rendered = function () {
+	Session.setTemp('title','Homepage');
+};
