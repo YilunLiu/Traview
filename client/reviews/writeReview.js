@@ -23,6 +23,10 @@ Template.writeReview.rendered = function () {
 
 Template.writeReview.addTag = function(name){
 	var tags = Session.get('tags');
+	if (tags.length >= 2){
+		throwError("At most two tags");
+		return;
+	}
 	tags.push(name);
 	Session.setTemp('tags',tags);
 	$('#tag-field').val('');
@@ -89,7 +93,7 @@ Template.writeReview.events({
 		var file = Template.writeReview.uploadedFile;
 
 
-		var errors = Session.get('errors');
+		var errors = {};
 		if (!title){
 			errors.title= "Type a title here";
 		}
@@ -103,9 +107,10 @@ Template.writeReview.events({
 			errors.comment = "Type some comment here";
 		}
 		if (_.isEmpty(file)){
-			errors.comment = "Upload file here";
+			errors.file = "Upload file here";
 		}
 
+		console.log(errors);
 
 		if (!_.isEmpty(errors)){
 			Session.setTemp('errors',errors);
@@ -157,6 +162,9 @@ Template.writeReview.helpers({
 	},
 	tags: function() {
 		return Session.get('tags');
+	},
+	errorClass: function(field){
+		return !!Session.get('errors')[field] ? 'error' : '';
 	}
 });
 
