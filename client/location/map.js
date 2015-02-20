@@ -25,7 +25,7 @@ Template.map.rendered = function () {
 
             var markerInfo = Session.get(locationValueKey);
             if (markerInfo){
-                var location = new google.maps.LatLng(markerInfo.location.k,markerInfo.location.D)
+                var location = new google.maps.LatLng(markerInfo.loc[1],markerInfo.loc[0])
                 var infowindow = new google.maps.InfoWindow({
                     content: markerInfo.name
                 })
@@ -86,7 +86,7 @@ Template.map.events({
                 });
 
                 var searchResult = {
-                    location: result[0].geometry.location,
+                    loc: [result[0].geometry.location.D, result[0].geometry.location.k],
                     name: names[0]
                 }
 

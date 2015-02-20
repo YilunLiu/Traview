@@ -5,6 +5,9 @@ Template.reviewPage.rendered = function () {
 Template.reviewPage.helpers({
 	modifiedCreatedTime: function(){
 		return formatDate(this.createdTime);
+	},
+	otherReview: function(){
+		return this.authorId != Meteor.userId();
 	}
 });
 

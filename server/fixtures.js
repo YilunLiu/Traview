@@ -89,8 +89,7 @@ if (Meteor.users.find().count() === 0){
 			review.authorId = AragornId;
 			review.author = userAragorn.username;
 			review.createdTime = moment().toISOString();
-			review.lat =  37.8651011;
-			review.lan = -119.53832940000001;
+			review.loc = [-119.53832940000001, 37.8651011];
 
             Reviews.insert(review);
 		} 

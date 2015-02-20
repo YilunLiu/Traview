@@ -92,7 +92,13 @@ Template.writeReview.events({
 		var comment = $('textarea').val();
 		var tags = Session.get('tags');
 		var file = Template.writeReview.uploadedFile;
+		var location = Session.get(locationValueKey);
 
+		if (_.isEmpty(location)){
+			throwError("You need to set a location first");
+			Router.go('changeLocation');
+			return;
+		}
 
 		var errors = {};
 		if (!title){
@@ -119,12 +125,12 @@ Template.writeReview.events({
 			return;
 		}
 
+
 		review = {
 			author: Meteor.user().username,
 			authorId: Meteor.userId(),
 			createdTime: moment().toISOString(),
-			lat: Session.get(locationValueKey).location.k,
-			lng: Session.get(locationValueKey).location.D,
+			loc: location.loc,
 			title: title,
 			category: category,
 			rating: rating,

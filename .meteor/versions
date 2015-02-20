@@ -54,11 +54,7 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
-<<<<<<< HEAD
 jeremy:selectize@0.2.0
-=======
-jeremy:selectize@0.12.0
->>>>>>> 349be1ed50f1135f6e0f3d16f15737b68163ca82
 joshowens:accounts-entry@1.0.3
 joshowens:simple-form@0.2.2
 jquery@1.11.3
@@ -101,13 +97,8 @@ spacebars-compiler@1.0.4
 srp@1.0.2
 stylus@1.0.6
 templating@1.0.11
-<<<<<<< HEAD
-tomi:upload-jquery@1.1.1
-tomi:upload-server@1.0.3
-=======
 tomi:upload-jquery@2.0.2
 tomi:upload-server@1.1.1
->>>>>>> 349be1ed50f1135f6e0f3d16f15737b68163ca82
 tracker@1.0.5
 u2622:persistent-session@0.2.2
 ui@1.0.5
