@@ -11,10 +11,12 @@
 
 .topHeader .left{
 	display: inline-block;
-	margin-left: 5px;
-	margin-top: 5px;
+	margin: 5px;
 }
 
 .topHeader .center{
 	display: inline-block;
+	font-size: 20px;
+	margin: 5px 5px 5px 0px;
+	font-weight: bold;
 }

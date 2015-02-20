@@ -11,12 +11,7 @@ Template.header.helpers({
 		}
 	},
 	changeLocation: function(){
-		var location = Session.get(locationValueKey);
-		if (location){
-			return "Change Location";
-		} else {
-			return "Set Location"
-		}
+		return "Set Location"
 	},
 	title: function(){
 		return Session.get('title');

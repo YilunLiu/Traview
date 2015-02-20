@@ -1,5 +1,5 @@
 Template.changeLocation.rendered = function () {
-	Session.setTemp('title','Change Location');
+	Session.setTemp('title','Set Location');
 };
 
 Template.changeLocation.events({
@@ -21,11 +21,6 @@ Template.changeLocation.events({
 
 Template.changeLocation.helpers({
 	changeOrSet: function () {
-		if (Session.get(locationValueKey)){
-			return "Change";
-		}
-		else {
-			return "Set";
-		}
+		return "Set";
 	}
 });

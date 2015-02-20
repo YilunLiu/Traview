@@ -67,6 +67,13 @@
 	display: inline-block;
 }
 
+
+.review-card .content .like{
+	display: inline-block;
+	position: absolute;
+	right: 5px;
+}
+
 .review-card .content .extra{
 	position: relative;
 }
