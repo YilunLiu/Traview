@@ -1,6 +1,6 @@
 <template name="reviewsList">
 	{{>reviewMenu}}
-	{{#each reviews}}
+	{{#each sortedFilteredReviews}}
 		{{> reviewItem}}
 	{{/each}}
 </template>
@@ -8,16 +8,11 @@
 <template name="reviewMenu">
 	<div class="review-menu">
 		<div class="category">
-			<label>Category</label>
+			<label>All</label>
 			<a class="ui dropdown icon button labled floating">
 				<i class="filter icon"></i>
 				<span class="text">Category</span>
 				<div class="menu">
-					<div class="header">
-						<i class="tags icon"></i>
-						Filter by Category
-					</div>
-					<div class="divider"></div>
 					<div class="item">
 						All
 					</div>

@@ -89,6 +89,7 @@ if (Meteor.users.find().count() === 0){
 			var review = reviews[i];
 			Images.insert(review.imageUrl, function(err, fileObj){
 				if (err){
+					console.log(err);
 					return;
 				}
 				review.image = fileObj._id;
