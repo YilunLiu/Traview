@@ -24,9 +24,9 @@ Template.reviewsList.helpers({
 		} else if (sort === 'Most Recent'){
 			sortOrder = {createdTime : -1};
 		} else if (sort === 'Highest Rating'){
-			sortOrder = {rating: 1};
-		} else if (sort === 'Lowest Rating'){
 			sortOrder = {rating: -1};
+		} else if (sort === 'Lowest Rating'){
+			sortOrder = {rating: 1};
 		}
 
 		return Reviews.find(filter, {sort: sortOrder});

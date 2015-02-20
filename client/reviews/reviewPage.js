@@ -29,6 +29,9 @@ Template.reviewPage.events({
 		e.preventDefault();
 		Router.go('reviewsList');
 		$('#header').show();
+	},
+	'click .like' : function(e, template){
+		$(e.target).find('i').toggleClass('empty');
 	}
 });
 
