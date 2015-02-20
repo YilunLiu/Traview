@@ -3,7 +3,7 @@ if (Meteor.users.find().count() === 0){
 	var userFrodo = {
 		username: "Frodo",
 		email: "Frodo@ucsd.edu",
-		password: "lordofring"
+		password: "lordofring",
 	};
 
 	var FrodoId = Accounts.createUser(userFrodo);

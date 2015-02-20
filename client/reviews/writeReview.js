@@ -4,7 +4,7 @@ Template.writeReview.rendered = function () {
 	Session.setTemp(errorFieldKey,errorField);
 	Session.setTemp(uploadedFileKey,uploadedFile);
 	Session.setTemp('tags', []);
-	Session.setTemp('error',{});
+	Session.setTemp('errors',{});
 
 	Template.writeReview.uploadedFile = {};
 
@@ -23,7 +23,7 @@ Template.writeReview.rendered = function () {
 
 Template.writeReview.addTag = function(name){
 	var tags = Session.get('tags');
-	tags.push({tag: name});
+	tags.push(name);
 	Session.setTemp('tags',tags);
 	$('#tag-field').val('');
 }
@@ -80,8 +80,69 @@ Template.writeReview.events({
 			
 		}
 	},
-	'click submit': function(e,template){
-		//TODO
+	'click #review-submit': function(e,template){
+		var title = $('#title-field').val();
+		var category = $('.ui.selection.dropdown').dropdown('get value');
+		var rating = $('.ui.star.rating').rating('get rating');
+		var comment = $('textarea').val();
+		var tags = Session.get('tags');
+		var file = Template.writeReview.uploadedFile;
+
+
+		var errors = Session.get('errors');
+		if (!title){
+			errors.title= "Type a title here";
+		}
+		if (!category){
+			errors.category = "Choose a category here";
+		}
+		if (!rating){
+			errors.rating = "Choose a rating here";
+		}
+		if (!comment){
+			errors.comment = "Type some comment here";
+		}
+		if (_.isEmpty(file)){
+			errors.comment = "Upload file here";
+		}
+
+
+		if (!_.isEmpty(errors)){
+			Session.setTemp('errors',errors);
+			throwError("Found empty fields in the post");
+			return;
+		}
+
+		review = {
+			author: Meteor.user().username,
+			authorId: Meteor.userId(),
+			createdTime: moment().toISOString(),
+			lat: Session.get(locationValueKey).location.k,
+			lng: Session.get(locationValueKey).location.D,
+			title: title,
+			category: category,
+			rating: rating,
+			comment: comment,
+			tags: tags,
+			image: file._id,
+			likes: 0
+
+		};
+
+		Reviews.insert(review, function(err, reviewId){
+			if (err){
+				throwError("Insert failed: "+ err);
+			} 
+			else {
+				Meteor.users.update(
+					{_id: Meteor.userId()}, 
+					{$push: {"profile.reviews": reviewId}}
+				);
+				Router.go('reviewsList');
+			}
+
+		});
+
 	}
 });
 
@@ -101,8 +162,13 @@ Template.writeReview.helpers({
 
 Template.tag.events({
 	'click .delete.icon': function (e, template) {
-		console.log(e);
-		console.log(template);
+		var tags = Session.get('tags');
+		var index = tags.indexOf(template.data);
+		if (index > -1){
+			tags.splice(index,1);
+		}
+		Session.setTemp('tags', tags);
+
 	}
 });
 
