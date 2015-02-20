@@ -54,7 +54,7 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
-jeremy:selectize@0.3.0
+jeremy:selectize@0.2.0
 joshowens:accounts-entry@1.0.3
 joshowens:simple-form@0.2.2
 jquery@1.11.3
@@ -75,7 +75,7 @@ mongo@1.0.11
 mongo-livedata@1.0.7
 mrt:googlemaps@0.1.1
 mrt:underscore-string-latest@2.3.3
-nooitaf:semantic-ui@1.8.1
+nooitaf:semantic-ui@1.7.3
 npm-bcrypt@0.7.7
 observe-sequence@1.0.4
 ordered-dict@1.0.2
@@ -97,8 +97,8 @@ spacebars-compiler@1.0.4
 srp@1.0.2
 stylus@1.0.6
 templating@1.0.11
-tomi:upload-jquery@2.0.0
-tomi:upload-server@1.1.1
+tomi:upload-jquery@1.1.1
+tomi:upload-server@1.0.3
 tracker@1.0.5
 u2622:persistent-session@0.2.2
 ui@1.0.5
