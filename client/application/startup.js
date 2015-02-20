@@ -9,7 +9,6 @@ Meteor.startup(function () {
 	    extraSignUpFields: []
 	});
 
-    Session.clear();
 
 
 });
