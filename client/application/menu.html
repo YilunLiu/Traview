@@ -2,13 +2,16 @@
 	<div class="ui left thin sidebar vertical menu">
 		<div class="item">
 			<img class="ui tiny circular image" src="{{randomPictureUrl}}">
+			{{#if currentUser}}
+    			<div class="editPhoto">Edit Profile Photo</div>
+			{{/if}}
 			<h5> Hi {{currentUsername}} </h5>
 		</div>
 
 		<div class="item">
 			Reviews
 			<div class="menu">
-				<a class= "item" href="{{pathFor 'changeLocation'}}">{{changeLocation}}</a>
+				<a class= "item" href="{{pathFor 'changeLocation'}}">{{  changeLocation}}</a>
 		        <a class = "item" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
 		        {{#if currentUser}}
 		        <a class="item" href="{{pathFor 'writeReview'}}">Write a Review</a>
@@ -17,11 +20,22 @@
     	</div>
 
 
-        {{#if currentUser}}
-          <a class="item" href="{{pathFor 'chatsList'}}">My Chats</a>
-        {{else}}
-          <a class="item" href="/sign-in">Login</a>
-        {{/if}}
+
+        
+    	<div class="item">
+    		{{#if currentUser}}
+			My Account
+			<div class="menu">
+				<a class = "item" href="{{pathFor 'chatsList'}}">My Chats</a>
+				<a class = "item" href="{{pathFor 'myReviews'}}">My Reviews</a>
+				<a class = "item" href="{{pathFor 'changePassword'}}">Change Password</a>
+		    </div>
+		    {{else}}
+              <a class="item" href="/sign-in">Login</a>
+		    {{/if}}
+    	</div>
+
+
 
         <a class="item" href="{{pathFor 'help'}}">FAQs</a>
         <a class="item" href="{{pathFor 'contactUs'}}">Contact Us</a>
