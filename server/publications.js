@@ -22,13 +22,10 @@ Meteor.publish('users',function(){
 })
 
 
-Meteor.publish('reviews', function(){
-	return Reviews.find({},{
-		authorname: 1,
-		title: 1,
-		timeCreated: 1
-	});
-});
+Meteor.publish('reviews', function(loc){
+	var distance = 10/3959;
+	return Reviews.find({loc: {$geoWithin: {$centerSphere: [[loc[0],loc[1]], distance ]}}});
+})
 
 Meteor.publish('oneReview', function(reviewId){
 	return Reviews.find({_id: reviewId});

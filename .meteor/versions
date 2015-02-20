@@ -54,7 +54,7 @@ iron:location@1.0.7
 iron:middleware-stack@1.0.7
 iron:router@1.0.7
 iron:url@1.0.7
-jeremy:selectize@0.12.0
+jeremy:selectize@0.2.0
 joshowens:accounts-entry@1.0.3
 joshowens:simple-form@0.2.2
 jquery@1.11.3
@@ -75,7 +75,11 @@ mongo@1.0.11
 mongo-livedata@1.0.7
 mrt:googlemaps@0.1.1
 mrt:underscore-string-latest@2.3.3
+<<<<<<< HEAD
 nooitaf:semantic-ui@1.9.2
+=======
+nooitaf:semantic-ui@1.7.3
+>>>>>>> 341d25ffa4f4cef38b78ff77b8df9912ca68ae32
 npm-bcrypt@0.7.7
 observe-sequence@1.0.4
 ordered-dict@1.0.2

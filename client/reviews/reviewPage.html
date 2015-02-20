@@ -27,11 +27,13 @@
 					by {{author}} {{modifiedCreatedTime}} 
 				</div>
 			</div>
-			<div class="bottom-button">
-				<div class="ui bottom attached button" id="chat-btn">
-					Chat
+			{{#if otherReview}}
+				<div class="bottom-button">
+					<div class="ui bottom attached button" id="chat-btn">
+						Chat
+					</div>
 				</div>
-			</div>
+			{{/if}}
 		</div>
 
 	</div>
