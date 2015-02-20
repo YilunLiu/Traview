@@ -24,10 +24,7 @@ Template.header.helpers({
 });
 
 Template.header.events({
-	'click a': function () {
-		$(".navbar-collapse").collapse('hide');
-	},
-	'click .content.icon': function(){
+	'click .left': function(){
 		$('.left.sidebar').sidebar('toggle',{left: 'overlay'});
 	}
 });

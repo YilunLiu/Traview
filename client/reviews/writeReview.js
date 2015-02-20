@@ -5,6 +5,7 @@ Template.writeReview.rendered = function () {
 	Session.setTemp(uploadedFileKey,uploadedFile);
 	Session.setTemp('tags', []);
 	Session.setTemp('errors',{});
+	Session.setTemp('title',"Write a Review");
 
 	Template.writeReview.uploadedFile = {};
 
