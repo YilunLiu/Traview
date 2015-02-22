@@ -11,6 +11,28 @@ Template.reviewPage.helpers({
 	},
 	imageObject: function(){
 		return Images.findOne(this.image);
+	},
+	liked: function() {
+		if (!this.likes){
+			return 'empty';
+		}
+		if (this.likes.indexOf(Meteor.userId()) === -1){
+			return 'empty';
+		}
+		else {
+			return '';
+		}
+	},
+	likeText: function(){
+		console.log(this.likeNumber);
+		if (this.likeNumber === 0){
+			return 'like';
+		}
+		if (this.likeNumber > 1){
+			return this.likeNumber + "  likes";
+		} else if (this.likeNumber === 1) {
+			return this.likeNumber + '  like';
+		} 
 	}
 });
 
@@ -21,7 +43,23 @@ Template.reviewPage.events({
 			Router.go('/sign-in');
 			return;
 		}
-		var chatId = Chats.findOne({$or: [{userA: this.authorId}, {userB: this.authorId}]})._id;
+		var chat = Chats.findOne({users: {$all: [Meteor.userId(), this.authorId]}});
+		var chatId;
+		if (chat){
+			chatId = chat._id
+		} else {
+			Meteor.call('createChat', Meteor.userId(), this.authorId, function(err, result){
+				console.log(chatId);
+				if (err){
+					throwError('Unable to create a chat');
+				}
+				else {
+					chatId  = result; 
+					console.log(result);
+				}
+			});
+		}
+
 		Router.go('chat',{_id: chatId});
 		$('#header').show();
 	},
@@ -31,7 +69,14 @@ Template.reviewPage.events({
 		$('#header').show();
 	},
 	'click .like' : function(e, template){
+		if ($(e.target).find('i').hasClass('empty')){
+			Reviews.update({_id: this._id}, {$push: {likes: Meteor.userId()}, $inc: {likeNumber: 1}});
+		}
+		else{
+			Reviews.update({_id: this._id}, {$pull: {likes: Meteor.userId()}, $inc: {likeNumber: -1}});
+		}
 		$(e.target).find('i').toggleClass('empty');
+
 	}
 });
 

@@ -138,7 +138,8 @@ Template.writeReview.events({
 			comment: comment,
 			tags: tags,
 			image: file._id,
-			likes: 0
+			likes: [],
+			likeNumber: 0
 
 		};
 

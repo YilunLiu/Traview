@@ -10,13 +10,15 @@ Template.chatPage.helpers({
 	}
 });
 
+
+
+
 Template.chatPage.rendered = function () {
-	Meteor.setTimeout(function(){
-		window.scrollTo(0,document.body.scrollHeight);
-	}, 500);
 
 	Session.setTemp('title','My Chats');
+	$('ui.fixed.sticky').sticky();
 }
+
 
 Template.chatPage.events({
 	'click #send-message-btn': function (e, template) {
@@ -42,11 +44,17 @@ var sendMessage = function(chatId){
 		insertMessage(message, chatId);
 		$('#message-field').val('');
 
-		Meteor.setTimeout( function(){
-			window.scrollTo(0,document.body.scrollHeight);
-		}, 100);
+		
 	}
 	else{
 		return;
 	}
 }
+
+
+Template.messageItem.rendered = function () {
+
+	window.scrollTo(0,document.body.scrollHeight);
+
+};
+

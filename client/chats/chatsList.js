@@ -16,12 +16,7 @@ Template.chatItem.events({
 
 Template.chatItem.helpers({
 	chatPerson: function() {
-		if (this.userA === Meteor.userId()){
-			return Meteor.users.findOne(this.userB).username;
-		}
-		else{
-			return Meteor.users.findOne(this.userA).username;
-		}
+		return Meteor.users.findOne(_.without(this.users, Meteor.userId()).toString()).username;
 	},
 	modifiedLastestMessage: function() {
 		if (this.lastestMessage.length > 30){

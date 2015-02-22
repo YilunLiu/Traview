@@ -1,6 +1,6 @@
 Template.reviewsList.rendered = function () {
 	Session.set('title', 'Read Reviews');
-	Session.set('sort','Oldest');
+	Session.set('sort','Most Popular');
 	Session.set('category','All');
 };
 
@@ -27,6 +27,8 @@ Template.reviewsList.helpers({
 			sortOrder = {rating: -1};
 		} else if (sort === 'Lowest Rating'){
 			sortOrder = {rating: 1};
+		} else if (sort === 'Most Popular'){
+			sortOrder = {likeNumber: -1};
 		}
 
 		return Reviews.find(filter, {sort: sortOrder});

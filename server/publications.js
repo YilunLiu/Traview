@@ -1,10 +1,6 @@
 
 Meteor.publish('myChats',function(userId){
-	return Chats.find({
-		$or : [
-			{userA: userId},
-			{userB: userId}
-		]
+	return Chats.find({ users: userId
 	}, {
 		messages: 0
 	});

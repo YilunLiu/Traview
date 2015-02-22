@@ -16,11 +16,29 @@
 	height: auto;
 }
 
+.messages {
+	margin-bottom: 36px;
+}
 
 .message-input{
 	bottom: 0px;
+	width: 100%
+
 }
 
+.message-input .ui.input {
+	width: 90%;
+	display: inline-block;
+	position: relative;
+}
+
+.message-input .ui.button {
+	width: 10%;
+	display: inline-block;
+	position: relative;
+	float: right;
+	margin-right: 0px;
+}
 
 .message-content p{
 	padding-bottom: 10px;

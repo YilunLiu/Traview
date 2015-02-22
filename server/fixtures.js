@@ -17,8 +17,7 @@ if (Meteor.users.find().count() === 0){
 
 
 	var chat = {
-		userA: FrodoId,
-		userB: AragornId,
+		users: [ FrodoId, AragornId],
 		messages: [],
 		lastestUpdate: "",
 		lastestMessage: ""
@@ -100,6 +99,7 @@ if (Meteor.users.find().count() === 0){
 			review.author = userAragorn.username;
 			review.createdTime = moment().toISOString();
 			review.loc = [-119.53832940000001, 37.8651011];
+			review.likeNumber = 0;
 
             Reviews.insert(review);
 		} 
