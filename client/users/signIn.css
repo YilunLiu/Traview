@@ -1,0 +1,11 @@
+.ui.signIn.form {
+	margin-top: 40px;
+}
+
+.ui.signIn.button {
+	width: 100%;
+}
+
+.signInExtra {
+	float: right;
+}

@@ -41,5 +41,14 @@ Template.menu.helpers({
 Template.menu.events({
 	'click a': function () {
 		$('.left.sidebar').sidebar('toggle');
+	},
+	'click .logoutButton' : function() {
+		Meteor.logout(function(err){
+			if (err){
+				throwError(err.reason)
+			} else {
+				Router.go('home');
+			}
+		})
 	}
 });

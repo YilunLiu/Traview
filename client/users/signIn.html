@@ -1,0 +1,22 @@
+<template name="signIn">
+	<div class="ui signIn form">
+		<div class="field {{errorClass 'username'}}">
+			<label>Username</label>
+			<input type="text" id="usernameField">
+			<label>{{errorMessage 'username'}}</label>
+		</div>
+		<div class="field {{errorClass 'password'}}">
+			<label>Password</label>
+			<input type="password" id="passwordField">
+			<label>{{errorMessage 'password'}}</label>
+		</div>
+
+		<div class="field">
+			<div class="ui signIn button"> Sign In </div>
+		</div>
+
+		<div class="signInExtra">
+			<a href="{{pathFor 'signUp'}}"> Sign Up </a>
+		</div>
+	</div>	
+</template>

@@ -1,0 +1,31 @@
+<template name="signUp">
+	<div class="ui signUp form">
+		<div class="field {{errorClass 'username'}}">
+			<label>Username</label>
+			<input type="text" id="usernameField">
+			<label>{{errorMessage 'username'}}</label>
+		</div>
+
+		<div class="field {{errorClass 'password'}}">
+			<label>Password</label>
+			<input type="password" id="passwordField">
+			<label>{{errorMessage 'password'}}</label>
+		</div>
+
+		<div class="field {{errorClass 'passwordConfirm'}}">
+			<label>Password Again</label>
+			<input type="password" id="passwordConfirm">
+			<label>{{errorMessage 'passwordConfirm'}}</label>
+		</div>
+
+
+		<div class="field">
+			<div class="ui signUp button"> Sign Up </div>
+		</div>
+
+		<div class="field">
+			<div class="ui cancel button"> Cancel </div>
+		</div>
+
+	</div>	
+</template>

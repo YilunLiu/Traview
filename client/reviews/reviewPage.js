@@ -24,7 +24,6 @@ Template.reviewPage.helpers({
 		}
 	},
 	likeText: function(){
-		console.log(this.likeNumber);
 		if (this.likeNumber === 0){
 			return 'like';
 		}

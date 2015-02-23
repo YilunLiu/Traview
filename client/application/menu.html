@@ -5,7 +5,7 @@
 			{{#if currentUser}}
     			<div class="editPhoto">Edit Profile Photo</div>
 			{{/if}}
-			<h2> Hi {{currentUsername}} </h2>
+			<h4> Hi {{currentUsername}} </h4>
 		</div>
 
 
@@ -35,7 +35,7 @@
 				<a class = "item" href="{{pathFor 'changePassword'}}">Change Password</a>
 		    </div>
 		    {{else}}
-              <a href="/sign-in">Login</a>
+              <a href="/sign-in">Sign In</a>
 		    {{/if}}
     	</div>
 
@@ -46,7 +46,7 @@
 
 
         {{#if currentUser}}
-          <a class="item" href="/sign-out">Logout</a>
+          <a class="item logoutButton" href="">Logout</a>
         {{/if}}
 
 	</div>
