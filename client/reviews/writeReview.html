@@ -7,6 +7,17 @@
         <input type="text" name="title" id="title-field" placeholder="Title here" maxlength="20">
       </div>
 
+      <div class="field {{errorClass 'title'}}">
+        <label>Location</label>
+        <span class="locationLabel">
+          {{currentLocation}}
+        </span>
+        <!-- <div class="ui tiny button" id="changeLocationBtn">
+          Change
+        </div> -->
+      </div>
+
+
       <div class="category1" id="#category1">
           <div class=" field {{errorClass 'category'}}">
             <label>Category</label>

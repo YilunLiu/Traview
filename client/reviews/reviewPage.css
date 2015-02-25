@@ -94,3 +94,7 @@
 .review-card .content .bottom-button {
 	margin-top: 1%;
 }
+
+.ui.model.small {
+	height: auto;
+}

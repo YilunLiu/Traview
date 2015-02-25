@@ -14,8 +14,7 @@ Template.changeLocation.events({
 			return ;
 		}
 
-		Meteor.setTimeout(function() {Router.go('reviewsList');
-		}, 500);
+		history.back();
 	}
 });
 

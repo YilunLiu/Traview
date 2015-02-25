@@ -1,11 +1,16 @@
+Template.menu.rendered = function () {
+
+
+};
+
 Template.menu.helpers({
 	randomPictureUrl: function () {
 		var picturePath = "/DefaultProfilePicture/"
-		var random = Math.floor(Math.random() * 10);
-		return picturePath+random+".jpg";
+		//var random = Math.floor(Math.random() * 10);
+		return picturePath+"profile_default.png";
 	},
 	currentUsername: function () {
-		if (Meteor.userId()){
+		if (Meteor.user()){
 			return Meteor.user().username;
 		}
 		else {

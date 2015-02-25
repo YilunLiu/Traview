@@ -31,4 +31,8 @@ Meteor.publish('oneReview', function(reviewId){
 
 Meteor.publish('images', function(){
 	return Images.find();
+});
+
+Meteor.publish('myReviews', function(userId){
+	return Reviews.find({authorId: userId});
 })

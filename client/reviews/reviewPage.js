@@ -64,7 +64,7 @@ Template.reviewPage.events({
 	},
 	'click #backBtn' : function(e, template){
 		e.preventDefault();
-		Router.go('reviewsList');
+		history.back();
 		$('#header').show();
 	},
 	'click .like' : function(e, template){
@@ -75,6 +75,19 @@ Template.reviewPage.events({
 			Reviews.update({_id: this._id}, {$pull: {likes: Meteor.userId()}, $inc: {likeNumber: -1}});
 		}
 		$(e.target).find('i').toggleClass('empty');
+
+	},
+	'click #delete-btn' : function (e,template) {
+		Reviews.remove({_id: this._id},function(err){
+			if (err){
+				throwError(err.reason);
+			}
+			else {
+				history.back();
+				$('#header').show();
+				sendSuccess('Your review has been deleted');
+			}
+		})
 
 	}
 });

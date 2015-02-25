@@ -1,4 +1,17 @@
 .editPhoto{
-	font-size: 12px;
-	margin-top: 15px;
+	font-size: 10px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.profile img {
+	width: 100px;
+	height: 100px;
+	display: block;
+	margin: auto;
+	border-radius: 500em;
+}
+
+.profile h4 {
+	text-align: center;
 }

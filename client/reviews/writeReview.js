@@ -157,6 +157,9 @@ Template.writeReview.events({
 
 		});
 
+	},
+	'click #changeLocationBtn': function(e, template){
+		Router.go('changeLocation');
 	}
 });
 
@@ -178,6 +181,9 @@ Template.writeReview.helpers({
 		}
 
 		return !!Session.get('errors')[field] ? 'error' : '';
+	},
+	currentLocation: function(){
+		return Session.get(locationValueKey).name;
 	}
 });
 

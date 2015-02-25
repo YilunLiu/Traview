@@ -8,15 +8,15 @@ Template.reviewsList.helpers({
 	sortedFilteredReviews: function () {
 		var sort = Session.get('sort');
 		var category = Session.get('category');
+		var location = Session.get(locationValueKey);
+		var distance = 10/3959;
 
-		var filter;
 		if (category == "All"){
 			filter = {};
-		} else {
+		}
+		else {
 			filter = {category : category};
 		}
-
-
 
 		var sortOrder;
 		if (sort === 'Oldest'){
@@ -24,11 +24,11 @@ Template.reviewsList.helpers({
 		} else if (sort === 'Most Recent'){
 			sortOrder = {createdTime : -1};
 		} else if (sort === 'Highest Rating'){
-			sortOrder = {rating: -1};
+			sortOrder = {rating: -1, createdTime : -1};
 		} else if (sort === 'Lowest Rating'){
-			sortOrder = {rating: 1};
+			sortOrder = {rating: 1, createdTime : -1};
 		} else if (sort === 'Most Popular'){
-			sortOrder = {likeNumber: -1};
+			sortOrder = {likeNumber: -1, createdTime : -1};
 		}
 
 		return Reviews.find(filter, {sort: sortOrder});
