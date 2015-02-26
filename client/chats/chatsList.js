@@ -31,27 +31,26 @@ Template.chatItem.helpers({
 
 });
 
+Template.initialChat.rendered = function(){
+	// if (!Meteor.userId()){
+	// 	return;
+	// }
 
-Template.initialChat.helpers({
-	addSearchSource: function(){
-		if (!Meteor.userId()){
-			return;
-		}
+	var users = Meteor.users.find({_id: {$not: Meteor.userId()}}).fetch();
 
-		var users = Meteor.users.find({_id: {$not: Meteor.userId()}}).fetch();
+	// if(users.length < 1){
+	// 	return;
+	// }
 
-		if(users.length < 1){
-			return;
-		}
-
-		var source = [];
-		for (var i in users){
-			var user = users[i];
-			source.push({title: user.username});
-		}
-		console.log(source);
-		$('.ui.users.search').search({
-			source: source
-		});
+	var source = [];
+	for (var i in users){
+		var user = users[i];
+		source.push({title: user.username});
 	}
-})
+	// console.log(source);
+	$('.ui.users.search').search({
+		source: source
+	});
+	// console.log($('.ui.users.search'));
+}
+
