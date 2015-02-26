@@ -2,7 +2,7 @@
 		{{#each chats}}
 			{{> chatItem}}
 		{{/each}}
-
+		{{> initialChat}}
 </template>
 
 <template name="chatItem">
@@ -10,5 +10,29 @@
 		<span class="Name">{{chatPerson}}</span>
 		<span class="LastMessage">{{modifiedLastestMessage}}</span>
 		<span class="LastUpdate">{{formatedLastestUpdate}}</span>
+	</div>
+</template>
+
+<template name="initialChat">
+	<div class="ui modal" id="addChat"> 
+		<i class="close icon"></i>
+		<div class="header">
+			New Chat
+		</div>
+		<div class="content">
+			<div class="ui form">
+				<div class="ui users search">
+					<div class="ui icon input">
+						<input class="prompt" type="text" placeholder="Search a user by username...">
+						<i class="search icon"></i>
+					</div>
+					<div class="results"></div>
+				</div>
+			</div>
+		</div>
+		<div class="actions">
+			<div class="ui button">Cancel</div>
+			<div class="ui green button">Send</div>
+		</div>
 	</div>
 </template>

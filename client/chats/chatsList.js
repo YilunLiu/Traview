@@ -30,3 +30,18 @@ Template.chatItem.helpers({
 	}
 
 });
+
+Template.initialChat.rendered = function(){
+	var users = Meteor.users.find().fetch();
+	var source = [];
+	console.log(users);
+	for (var i in users){
+		var user = users[i];
+		source.push({title: user.username});
+		console.log(user);
+	}
+	console.log(source);
+	$('.ui.users.search').search({
+		source: source
+	});
+}

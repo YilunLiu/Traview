@@ -38,5 +38,8 @@ Template.header.events({
 	},
 	'click .big.write.icon': function(){
 		Router.go('writeReview');
+	},
+	'click #addChatBtn': function(){
+		$('#addChat').modal('show');
 	}
 });
