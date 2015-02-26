@@ -25,7 +25,7 @@ Template.writeReview.rendered = function () {
 Template.writeReview.addTag = function(name){
 	var tags = Session.get('tags');
 	if (tags.length >= 2){
-		throwError("At most two tags");
+		throwError("Cannot add more tags","At most two tags");
 		return;
 	}
 	tags.push(name);
@@ -61,7 +61,7 @@ Template.writeReview.events({
 		if (_.isEmpty(uploadedFile)){		
 			var file = $('#file')[0].files[0];
 			if (!file){
-				throwError('Please select a picture to upload');
+				throwError('Not picture choosen','Please select a picture to upload');
 				return;
 				
 			} else{
@@ -71,7 +71,7 @@ Template.writeReview.events({
 				newFile.metadata = {owner: Meteor.userId(), loc: location.loc};
 				Images.insert(newFile, function(err, fileObj){
 					if (err) {
-						throwError("Upload image unsuccessfully");
+						throwError("Upload image unsuccessfully",err.reson);
 						return;
 					}
 					Template.writeReview.uploadedFile = fileObj;
@@ -96,7 +96,7 @@ Template.writeReview.events({
 		var location = Session.get(locationValueKey);
 
 		if (_.isEmpty(location)){
-			throwError("You need to set a location first");
+			throwError("No location set","You need to set a location first");
 			Router.go('changeLocation');
 			return;
 		}
@@ -122,7 +122,7 @@ Template.writeReview.events({
 
 		if (!_.isEmpty(errors)){
 			Session.setTemp('errors',errors);
-			throwError("Found empty fields in the post");
+			throwError("Post unsuccessfully", "Found empty fields in the post");
 			return;
 		}
 
@@ -145,9 +145,10 @@ Template.writeReview.events({
 
 		Reviews.insert(review, function(err, reviewId){
 			if (err){
-				throwError("Insert failed: "+ err);
+				throwError("Post unsuccessfully", err.reson);
 			} 
 			else {
+				sendSuccess('Post successfully');
 				Meteor.users.update(
 					{_id: Meteor.userId()}, 
 					{$push: {"profile.reviews": reviewId}}
@@ -160,6 +161,9 @@ Template.writeReview.events({
 	},
 	'click #changeLocationBtn': function(e, template){
 		Router.go('changeLocation');
+	},
+	'click #cancel-btn': function(e,template){
+		history.back()
 	}
 });
 

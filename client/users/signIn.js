@@ -29,7 +29,7 @@ Template.signIn.events({
 			if (err){
 				throwError(err.reason);
 			} else {
-				Router.go('reviewsList');
+				history.back();
 			}
 		});
 	}

@@ -34,5 +34,5 @@ Meteor.publish('images', function(){
 });
 
 Meteor.publish('myReviews', function(userId){
-	return Reviews.find({authorId: userId});
+	return [Reviews.find({authorId: userId}), Images.find({"metadata.owner": userId})];
 })

@@ -1,14 +1,14 @@
 Notifications = new Mongo.Collection(null);
 
-throwError = function(message) { 
-	notification = Notifications.insert({type: "error", message: message});
+throwError = function(title, message) { 
+	notification = Notifications.insert({type: "negative", title: title, message: message});
 	Meteor.setTimeout(function(){
 		Notifications.remove({});
 	},3000)
 };
 
-sendSuccess = function(message){
-	notification = Notifications.insert({type: "success", message: message});
+sendSuccess = function(title, message){
+	notification = Notifications.insert({type: "positive", title: title, message: message});
 	Meteor.setTimeout(function(){
 		Notifications.remove({});
 	},3000)
@@ -22,12 +22,4 @@ Template.notifications.helpers({
 
 
 Template.notification.helpers({
-	alertType: function () {
-		if (this.type === 'error'){
-			return 'alert-danger';
-		}
-		if (this.type === 'success'){
-			return 'alert-success';
-		}
-	}
 });

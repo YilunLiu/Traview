@@ -1,15 +1,17 @@
 <template name="map">
-	<div class="findPlace col-ms-10 form-group">
-		<div class="col-ms-6 {{classError 'addressField'}}">
-		    <div class="input-group">
-		      <input type="text" class="form-control" id="addressField" placeholder="Search for a place...">
-		      <span class="input-group-btn">
-		        <button class="btn btn-default" type="button" id="findPlace">Find!</button>
-		      </span>
-		    </div><!-- /input-group -->
-		  <span class="help-block">{{errorMessage 'addressField'}}</span>
-		  </div>
+
+	<div class="map">
+		<div class="ui form">
+			<div class="ui field {{classError 'addressField'}}">
+				<div class="ui action input">
+					<input type="text" placeholder="Search for a place..." id="addressField">
+					<button class="ui icon button {{classError 'addressField'}}" id="findPlace">
+						<i class="search icon"></i>
+					</button>
+				</div>
+				<label>{{errorMessage 'addressField'}}</label>
+			</div>
+		</div>
+		<div class="col-ms-10" id="googleMap"></div>
 	</div>
-		      
-	<div class="col-ms-10" id="googleMap"></div>
 </template>

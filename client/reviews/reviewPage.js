@@ -89,6 +89,13 @@ Template.reviewPage.events({
 			}
 		})
 
+		e.preventDefault();
+		// Reviews.remove({_id: this._id});
+		$('.basic.modal').modal('show');
+		Session.set('deleteReivewId',this._id);
+		Session.set('fromReviewPage', true);
+
+
 	}
 });
 

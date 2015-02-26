@@ -7,12 +7,18 @@
 
 
 	<div id="header">
-		<div class="topHeader">
-			<div class="left">
-				<i class="big content icon"></i>
-			</div>
-			
-			<div class="center"> {{title}} </div>
+		<div class="left">
+			<i class="big content icon"></i>
+		</div>
+		
+		<div class="ui center aligned header"> {{title}} </div>
+		<div class="right">
+			{{#if isReadReview}}
+				<i class="big write icon"></i>
+			{{/if}}
+			{{#if isMyChats}}
+				<i class="big add circle icon"></i>
+			{{/if}}
 		</div>
 	</div>
 

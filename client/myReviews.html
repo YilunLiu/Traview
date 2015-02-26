@@ -1,7 +1,8 @@
 <template name="myReviews">
 	<div class="profile-header">
 		<img src="/DefaultProfilePicture/profile_default.png">
-		{{username}}
+		<div class="name">{{username}}</div>
+		
 	</div>
 
 	<div class="statistics">
@@ -10,6 +11,36 @@
 	</div>
 
 	<div class="myReviews">
+		{{#each myReviews}}
+			{{> myReview}}
+		{{/each}}
+	</div>
+	
+	{{> deleteConfirmation}}
+</template>
+
+
+<template name="myReview">
+	<div class="myReview">
+		<div class="image">
+			{{#with imageObject}}	
+				<img src="{{this.url store='images'}}">
+			{{/with}}
+		</div>
+		<div class="content">
+			<div class="title">
+				{{title}}
+			</div>
+			<div class="date">
+				{{modifiedCreatedTime}}
+			</div>
+		</div>
+		<div class="extra">
+			<i class="large circular icon trash"></i>
+		</div>
+		<span class="clickArea">
+		</span>
 
 	</div>
 </template>
+

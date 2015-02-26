@@ -93,15 +93,16 @@ if (Meteor.users.find().count() === 0){
 				}
 				review.image = fileObj._id;
 				Images.update({_id: fileObj._id}, {$set: {'metadata.loc': [-119.53832940000001, 37.8651011], 'metadata.owner': AragornId}});
+				review.authorId = AragornId;
+				review.author = userAragorn.username;
+				review.createdTime = moment().toISOString();
+				review.loc = [-119.53832940000001, 37.8651011];
+				review.locationName = "Yosemite National Park";
+				review.likeNumber = 0;
+
+	            Reviews.insert(review);
 			})
 
-			review.authorId = AragornId;
-			review.author = userAragorn.username;
-			review.createdTime = moment().toISOString();
-			review.loc = [-119.53832940000001, 37.8651011];
-			review.likeNumber = 0;
-
-            Reviews.insert(review);
 		} 
 	}
 

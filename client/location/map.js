@@ -102,7 +102,7 @@ Template.map.events({
 
 Template.map.helpers({
     classError: function (str) {
-        return !!Session.get(errorFieldKey)[str] ? 'has-error' : '';
+        return !!Session.get(errorFieldKey)[str] ? 'error' : '';
     },
     errorMessage: function(str) {
         return Session.get(errorFieldKey)[str];
