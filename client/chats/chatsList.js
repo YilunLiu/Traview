@@ -31,17 +31,27 @@ Template.chatItem.helpers({
 
 });
 
-Template.initialChat.rendered = function(){
-	var users = Meteor.users.find().fetch();
-	var source = [];
-	console.log(users);
-	for (var i in users){
-		var user = users[i];
-		source.push({title: user.username});
-		console.log(user);
+
+Template.initialChat.helpers({
+	addSearchSource: function(){
+		if (!Meteor.userId()){
+			return;
+		}
+
+		var users = Meteor.users.find({_id: {$not: Meteor.userId()}}).fetch();
+
+		if(users.length < 1){
+			return;
+		}
+
+		var source = [];
+		for (var i in users){
+			var user = users[i];
+			source.push({title: user.username});
+		}
+		console.log(source);
+		$('.ui.users.search').search({
+			source: source
+		});
 	}
-	console.log(source);
-	$('.ui.users.search').search({
-		source: source
-	});
-}
+})
