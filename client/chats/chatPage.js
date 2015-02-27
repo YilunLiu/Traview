@@ -15,7 +15,8 @@ Template.chatPage.helpers({
 
 Template.chatPage.rendered = function () {
 
-	Session.setTemp('title','My Chats');
+	console.log(Meteor.users.find().count());
+	Session.setTemp('title',Meteor.users.findOne(_.without(this.data.users, Meteor.userId()).toString()).username);
 	$('ui.fixed.sticky').sticky();
 }
 

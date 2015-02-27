@@ -36,6 +36,33 @@ Template.initialChat.rendered = function(){
 	// 	return;
 	// }
 
+	$('#addChat').modal({
+		onApprove: function(){
+			var newChatUser = Session.get('newChatUser');
+			if (!_.isEmpty(newChatUser)){
+				var chat = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}});
+				var chatId;
+				if (chat){
+					chatId = chat._id
+				} else {
+					Meteor.call('createChat', Meteor.userId(), newChatUser._id, function(err, result){
+						console.log(chatId);
+						if (err){
+							throwError('Unable to create a chat');
+						}
+						else {
+							chatId  = result; 
+							console.log(result);
+						}
+					});
+				}
+
+				Router.go('chat',{_id: chatId});
+			}
+		}
+	});
+
+	Session.setTemp('newChatUser',{});
 	var users = Meteor.users.find({_id: {$not: Meteor.userId()}}).fetch();
 
 	// if(users.length < 1){
@@ -49,8 +76,28 @@ Template.initialChat.rendered = function(){
 	}
 	// console.log(source);
 	$('.ui.users.search').search({
-		source: source
+		source: source,
+		onSelect: function(result, response){
+			var user = Meteor.users.findOne({username: result.title});
+			Session.set('newChatUser',user);
+		}
 	});
+
+
 	// console.log($('.ui.users.search'));
 }
+
+Template.initialChat.helpers({
+	newChatUser: function () {
+		return Session.get('newChatUser');
+	},
+	hasNewChatUser: function() {
+		var newUser = Session.get('newChatUser');
+		return !_.isEmpty(newUser);
+	},
+	profileImageObject: function() {
+		return ProfileImages.findOne(this.profile.image);
+	}
+});
+
 

@@ -50,6 +50,7 @@ Template.reviewPage.events({
 			Meteor.call('createChat', Meteor.userId(), this.authorId, function(err, result){
 				console.log(chatId);
 				if (err){
+					console.log(err);
 					throwError('Unable to create a chat');
 				}
 				else {

@@ -21,18 +21,49 @@
 		</div>
 		<div class="content">
 			<div class="ui form">
-				<div class="ui users search">
+				<div class="ui users search field">
 					<div class="ui icon input">
 						<input class="prompt" type="text" placeholder="Search a user by username...">
 						<i class="search icon"></i>
 					</div>
 					<div class="results"></div>
 				</div>
+			{{#if hasNewChatUser}}
+				{{#with newChatUser}}
+					<div class="ui divider"></div>
+					<div class="field researchResult"> 
+						{{#with profileImageObject}}
+							<img src="{{this.url}}" class="image">
+						{{/with}}
+						<div class="username">
+							{{username}}
+						</div>
+					</div>
+				{{/with}}
+			{{/if}}
 			</div>
 		</div>
+
 		<div class="actions">
-			<div class="ui button">Cancel</div>
-			<div class="ui green button">Send</div>
+			<div class="two fluid ui buttons">
+				<div class="ui  cancel  button">
+					<i class="remove icon"></i>
+					Cancel
+				</div>
+				<div class="ui ok blue button">
+					<i class="checkmark icon"></i>
+					Start
+				</div>
+			</div>
 		</div>
+	</div>
+</template>
+
+<template name="newChatUser">
+	<div class="ui divider"></div>
+	<div class="field"> 
+		{{#with profileImageObject}}
+			<img src="{{this.url}}" class="image">
+		{{/with}}
 	</div>
 </template>

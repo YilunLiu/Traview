@@ -11,10 +11,7 @@ Meteor.publish('oneChat', function(chatId){
 });
 
 Meteor.publish('users',function(){
-	return Meteor.users.find({}, {
-		emails: 1,
-		username: 1
-	});
+	return [ Meteor.users.find(), ProfileImages.find() ];
 })
 
 

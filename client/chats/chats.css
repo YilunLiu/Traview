@@ -34,4 +34,21 @@
 
 }
 
+#addChat .researchResult{
+	padding: 0px 10px;
+}
 
+#addChat img {
+	width: 50px;
+	height: 50px;
+	border-radius: 500em;
+	display: inline-block;
+	margin-right: 10px;
+}
+#addChat .username {
+	display: inline-block;
+	font-size: 16px;
+	font-weight: bold;
+	position: relative;
+	top: -15px;
+}

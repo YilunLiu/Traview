@@ -1,7 +1,13 @@
 <template name = "menu">
 	<div class="ui left thin sidebar vertical menu">
 		<div class="item profile">
-			<img class="image" src="{{randomPictureUrl}}">
+			{{#if currentUser}}
+				{{#with userImageObject}}
+					<img class="image" src="{{this.url}}">
+				{{/with}}
+			{{else}}
+				<img class="image" src="{{defaultPictureUrl}}">
+			{{/if}}
 			<h4> Hi, {{currentUsername}} </h4>
 		</div>
 

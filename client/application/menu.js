@@ -4,10 +4,13 @@ Template.menu.rendered = function () {
 };
 
 Template.menu.helpers({
-	randomPictureUrl: function () {
+	defaultPictureUrl: function () {
 		var picturePath = "/DefaultProfilePicture/"
 		//var random = Math.floor(Math.random() * 10);
 		return picturePath+"profile_default.png";
+	},
+	userImageObject: function() {
+		return ProfileImages.findOne(Meteor.user().profile.image);
 	},
 	currentUsername: function () {
 		if (Meteor.user()){

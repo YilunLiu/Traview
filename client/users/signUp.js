@@ -38,7 +38,9 @@ Template.signUp.events({
 		Accounts.createUser({
 			username: username,
 			password: password,
-			profile: {}
+			profile: {
+				image: ProfileImages.findOne({'metadata.defaultImage': true})._id
+			}
 		}, function(err){
 			if (err){
 				throwError(err.reson);
