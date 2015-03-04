@@ -69,13 +69,17 @@ Template.reviewPage.events({
 		$('#header').show();
 	},
 	'click .like' : function(e, template){
-		if ($(e.target).find('i').hasClass('empty')){
+		if (!Meteor.userId){
+			throwError("Login Required", "You must login to like it");
+			return;
+		}
+		if ($(document.body).find('i').hasClass('empty')){
 			Reviews.update({_id: this._id}, {$push: {likes: Meteor.userId()}, $inc: {likeNumber: 1}});
 		}
 		else{
 			Reviews.update({_id: this._id}, {$pull: {likes: Meteor.userId()}, $inc: {likeNumber: -1}});
 		}
-		$(e.target).find('i').toggleClass('empty');
+		$(document.body).find('i').toggleClass('empty');
 
 	},
 	'click #delete-btn' : function (e,template) {
