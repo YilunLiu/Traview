@@ -1,0 +1,17 @@
+<template name="alternativeMap">
+	<div id="map">
+		
+	</div>
+	<div class="ui form" id="mapSearch">
+		<div class="ui field {{classError 'addressField'}}">
+			<div class="ui action input">
+				<input type="text" placeholder="Search for a place..." id="addressField">
+				<button class="ui icon button {{classError 'addressField'}}" id="findPlace">
+					<i class="search icon"></i>
+				</button>
+			</div>
+			<label>{{errorMessage 'addressField'}}</label>
+		</div>
+	</div>
+
+</template>
