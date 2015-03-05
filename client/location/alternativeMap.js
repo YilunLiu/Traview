@@ -62,11 +62,13 @@ Template.alternativeMap.rendered = function () {
                             var names = results[0].formatted_address.split(",")
                             infowindow.setContent(names[0]);
                             infowindow.open(map);
-
+                            console.log(results);
+                            var center = map.getCenter()
                             var searchResult = {
-                                loc: [results[0].geometry.location.D, results[0].geometry.location.k],
+                                loc: [center.D, center.k],
                                 name: names[0]
                             }
+                            console.log(searchResult);
                             Session.setTemp(searchResultKey, searchResult);
 
                           } else {

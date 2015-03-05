@@ -38,6 +38,7 @@ Template.reviewPage.helpers({
 Template.reviewPage.events({
 	'click #chat-btn': function (e, template) {
 		e.preventDefault();
+		$('#header').show();
 		if(!Meteor.userId()){
 			Router.go('/sign-in');
 			return;
@@ -61,7 +62,6 @@ Template.reviewPage.events({
 		}
 
 		Router.go('chat',{_id: chatId});
-		$('#header').show();
 	},
 	'click #backBtn' : function(e, template){
 		e.preventDefault();
