@@ -18,7 +18,7 @@ Template.header.helpers({
 	},
 	isReadReview: function(){
 		var title = Session.get('title');
-		if (title === "Read Reviews"){
+		if (title === "Read Reviews" && Math.floor(Math.random()*2)){
 			return true;
 		}
 		return false;
