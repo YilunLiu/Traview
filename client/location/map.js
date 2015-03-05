@@ -96,6 +96,9 @@ Template.map.events({
                 throwError("No such place found. Did you type it correctly?");
             }
         })
+    },
+    'click #googleMap': function(e,template){
+        woopra.track('HomeAUnsuccessfulClick');
     }
 });
 

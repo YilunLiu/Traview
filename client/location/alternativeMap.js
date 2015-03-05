@@ -62,13 +62,11 @@ Template.alternativeMap.rendered = function () {
                             var names = results[0].formatted_address.split(",")
                             infowindow.setContent(names[0]);
                             infowindow.open(map);
-                            console.log(results);
                             var center = map.getCenter()
                             var searchResult = {
                                 loc: [center.D, center.k],
                                 name: names[0]
                             }
-                            console.log(searchResult);
                             Session.setTemp(searchResultKey, searchResult);
 
                           } else {
@@ -126,6 +124,9 @@ Template.alternativeMap.events({
                 throwError("No such place found","Did you type it correctly?");
             }
         })
+    },
+    'click .centerMarker': function(e,template){
+        woopra.track('HomeBUnsuccessfulClick');
     }
 })
 

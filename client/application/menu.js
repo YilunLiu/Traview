@@ -1,5 +1,5 @@
 Template.menu.rendered = function () {
-
+	Session.set('alternative',Math.floor(Math.random()*2));
 
 };
 
@@ -58,5 +58,12 @@ Template.menu.events({
 				Router.go('home');
 			}
 		})
+	},
+	'click #writeAReview': function(){
+		if(Session.get('alternative')){
+			woopra.track('hasIconClick');
+		}else{
+			woopra.track('donthasIconClick');
+		}
 	}
 });

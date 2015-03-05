@@ -18,7 +18,7 @@ Template.header.helpers({
 	},
 	isReadReview: function(){
 		var title = Session.get('title');
-		if (title === "Read Reviews" && Math.floor(Math.random()*2)){
+		if (title === "Read Reviews" && Session.get('alternative')){
 			return true;
 		}
 		return false;
@@ -38,6 +38,7 @@ Template.header.events({
 	},
 	'click .big.write.icon': function(){
 		Router.go('writeReview');
+		woopra.track('ClickOnIcon');
 	},
 	'click #addChatBtn': function(){
 		$('#addChat').modal('show');

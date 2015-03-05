@@ -2,6 +2,11 @@ Template.homepage.events({
 	'click #enter': function (e) {
 		e.preventDefault();
 
+		var duration = moment().diff(Session.get('startTime'),'seconds');
+		woopra.track('HomeASuccessfulClick',{
+			duration: duration
+		})
+
 		var searchResult = Session.get(searchResultKey);
 		if (Session.get(locationValueKey)){
 			Router.go('reviewsList');
@@ -19,6 +24,8 @@ Template.homepage.events({
 
 Template.homepage.rendered = function () {
 	Session.setTemp('title','Homepage');
+
+	Session.set('startTime',moment());
 };
 
 Template.home.helpers({

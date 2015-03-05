@@ -2,11 +2,19 @@ Template.alternativeHomepage.rendered = function () {
 
     $('#header').hide();
 
+    Session.set('startTime',moment());
+
 }
 
 Template.alternativeHomepage.events({
 	'click #readReviews': function(e, template){
 		e.preventDefault();
+
+		var duration = moment().diff(Session.get('startTime'),'seconds');
+		woopra.track('HomeBSuccessfulClick',{
+			duration: duration
+		})
+
 		if(Template.alternativeHomepage.storeResult()){
 			Router.go('reviewsList');
 			$('#header').show()
@@ -14,6 +22,12 @@ Template.alternativeHomepage.events({
 	},
 	'click #writeReviews': function(e, template){
 		e.preventDefault();
+
+		var duration = moment().diff(Session.get('startTime'),'seconds');
+		woopra.track('HomeBSuccessfulClick',{
+			duration: duration
+		})
+
 		if(Template.alternativeHomepage.storeResult()){
 			Router.go('writeReview');
 
