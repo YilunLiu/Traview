@@ -1,4 +1,4 @@
-#changeBtn{
-	width: 100%;
-	margin-top: 5%;
+.changeLocation .mapButtons{
+	width: 80%;
+	margin: 10% 10% 5%;
 }

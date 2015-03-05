@@ -16,6 +16,7 @@ Template.alternativeHomepage.events({
 		e.preventDefault();
 		if(Template.alternativeHomepage.storeResult()){
 			Router.go('writeReview');
+
 			$('#header').show()
 		}
 	}

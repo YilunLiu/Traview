@@ -1,11 +1,11 @@
 
-#enterbuttons{
+#mapButtons{
 	position: fixed;
 	bottom: 20px;
 	width: 100%;
 }
 
-#enterbuttons .ui.button{
+#mapButtons .ui.button{
 	margin-left: 5%;
 	margin-right: 5%;
 	width: 40%

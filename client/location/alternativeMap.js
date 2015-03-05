@@ -29,14 +29,19 @@ Template.alternativeMap.rendered = function () {
 
             };
             map = new google.maps.Map(document.getElementById("map"), mapOptions); 
+
+            var currentReviewLocation = Session.get(locationValueKey);
             var center = new google.maps.LatLng( 32.8801705, -117.232095 );
+            if (!_.isEmpty(currentReviewLocation)){
+                center = new google.maps.LatLng( currentReviewLocation.loc[1], currentReviewLocation.loc[0] );
+            }
             map.setCenter(center);
 
             geocoder = new google.maps.Geocoder();
 
             var input = document.getElementById('mapSearch');
             map.controls[google.maps.ControlPosition.TOP_CENTER].push(input);
-            // var buttons = document.getElementById('enterbuttons');
+            // var buttons = document.getElementById('mapButtons');
             // map.controls[google.maps.ControlPosition.BOTTOM_LEFT].push(buttons);
 
             infowindow = new google.maps.InfoWindow();
@@ -46,7 +51,7 @@ Template.alternativeMap.rendered = function () {
             google.maps.event.addListener(map, 'dragstart', function() {
                 infowindow.close();
                 Session.set("afterDrag",true);
-                $('#enterbuttons').hide();
+                $('.mapButtons').hide();
             })
 
             google.maps.event.addListener(map, 'idle', function() { 
@@ -74,7 +79,7 @@ Template.alternativeMap.rendered = function () {
                     Session.set('afterDrag',false)
                 }
                 
-                $('#enterbuttons').fadeIn();
+                $('.mapButtons').fadeIn();
 
             });
             

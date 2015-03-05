@@ -1,11 +1,14 @@
 <template name="changeLocation">
-		<div class="container">
-			<div>
-				{{> map}}
-			</div>
 
-			<div class="ui button" id="changeBtn">
-				Next
-			</div>
+	<div class="changeLocation">
+		{{#if useAlternative}}
+			{{> alternativeMap}}
+		{{else}}
+			{{> map}}
+		{{/if}}
+
+		<div class="ui button mapButtons">
+			Change Location
 		</div>
+	</div>
 </template>

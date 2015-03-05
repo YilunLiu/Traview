@@ -1,5 +1,5 @@
 Template.changeLocation.rendered = function () {
-	Session.setTemp('title','Set Location');
+	Session.setTemp('title','Change Location');
 };
 
 Template.changeLocation.events({
@@ -19,7 +19,7 @@ Template.changeLocation.events({
 });
 
 Template.changeLocation.helpers({
-	changeOrSet: function () {
-		return "Set";
+	useAlternative: function(){
+		return Math.floor(Math.random() * 2);
 	}
 });
