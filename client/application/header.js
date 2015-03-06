@@ -18,7 +18,7 @@ Template.header.helpers({
 	},
 	isReadReview: function(){
 		var title = Session.get('title');
-		if (title === "Read Reviews" && Session.get('alternative')){
+		if (title === "Read Reviews"){
 			return true;
 		}
 		return false;
