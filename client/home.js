@@ -8,14 +8,12 @@ Template.homepage.events({
 		})
 
 		var searchResult = Session.get(searchResultKey);
-		if (Session.get(locationValueKey)){
-			Router.go('reviewsList');
-		}
-		else if (!_.isEmpty(searchResult)){
-			Session.setPersistent(locationValueKey, searchResult);
-		} else {
+		if (_.isEmpty(searchResult) || !Session.get(locationValueKey)){
+
 			throwError("Please enter a location and search it :)");
 			return ;
+		} else {
+			Session.setPersistent(locationValueKey, searchResult);
 		}
 		Router.go('reviewsList');
 	}

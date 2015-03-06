@@ -73,7 +73,7 @@ Template.reviewPage.events({
 			throwError("Login Required", "You must login to like it");
 			return;
 		}
-		if ($(document.body).find('i').hasClass('empty')){
+		if ($(document.body).find('i.heart').hasClass('empty')){
 			Reviews.update({_id: this._id}, {$push: {likes: Meteor.userId()}, $inc: {likeNumber: 1}});
 		}
 		else{
