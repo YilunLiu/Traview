@@ -52,13 +52,14 @@ Template.reviewPage.events({
 			chatId = chat._id
 			Router.go('chat',{_id: chatId});
 		} else {
+			var authorId = this.authorId;
 			Meteor.call('createChat', Meteor.userId(), this.authorId, function(err, result){
 				if (err){
 					console.log(err);
-					throwError('Unable to create a chat');
+					throwError('Unable to create a chat',err.reason);
 				}
 				else {
-					chatId = Chats.findOne({users: {$all: [Meteor.userId(), this.authorId]}})._id;
+					chatId = Chats.findOne({users: {$all: [Meteor.userId(), authorId]}})._id;
 					Router.go('chat',{_id: chatId});
 				}
 			});
