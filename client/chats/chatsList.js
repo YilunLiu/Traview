@@ -56,7 +56,6 @@ Template.initialChat.rendered = function(){
 						}
 						else {
 							chatId = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}})._id;
-							console.log(chatId);
 							Router.go('chat',{_id: chatId});
 						}
 					});
