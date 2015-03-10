@@ -18,8 +18,3 @@ Template.changeLocation.events({
 	}
 });
 
-Template.changeLocation.helpers({
-	useAlternative: function(){
-		return Math.floor(Math.random() * 2);
-	}
-});

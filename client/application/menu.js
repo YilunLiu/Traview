@@ -1,5 +1,4 @@
 Template.menu.rendered = function () {
-	Session.set('alternative',Math.floor(Math.random()*2));
 
 };
 
@@ -49,6 +48,7 @@ Template.menu.helpers({
 Template.menu.events({
 	'click a': function () {
 		$('.left.sidebar').sidebar('toggle');
+		console.log('hide');
 	},
 	'click .logoutButton' : function() {
 		Meteor.logout(function(err){

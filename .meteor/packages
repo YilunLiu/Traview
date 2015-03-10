@@ -18,7 +18,6 @@ coffeescript
 mrt:underscore-string-latest
 momentjs:moment
 amplify
-fastclick
 http
 u2622:persistent-session
 nooitaf:semantic-ui

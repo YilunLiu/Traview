@@ -1,21 +1,33 @@
 Template.reviewsList.rendered = function () {
 	Session.set('title', 'Read Reviews');
-	Session.set('sort','Most Popular');
-	Session.set('category','All');
+	if (_.isEmpty(Session.get('sort'))){
+		Session.set('sort','Most Popular');
+	}
+	if (_.isEmpty(Session.get('category'))){
+		Session.set('category','All');
+	}
+	if (_.isEmpty(Session.get('reviewsLimit')))
+	{
+		Session.set('reviewsLimit',10);
+	}
+
 };
 
 Template.reviewsList.helpers({
 	sortedFilteredReviews: function () {
 		var sort = Session.get('sort');
 		var category = Session.get('category');
+		var limit = Session.get('reviewsLimit')
 		var location = Session.get(locationValueKey);
-		var distance = 10/3959;
+		var distance = 1000;
+
+		
 
 		if (category == "All"){
-			filter = {};
+			filter = {loc:{$near:[location.loc[0], location.loc[1]], $maxDistance:distance}};
 		}
 		else {
-			filter = {category : category};
+			filter = {loc:{$near:[location.loc[0], location.loc[1]], $maxDistance:distance}, category: category};
 		}
 
 		var sortOrder;
@@ -31,7 +43,13 @@ Template.reviewsList.helpers({
 			sortOrder = {likeNumber: -1, createdTime : -1};
 		}
 
-		return Reviews.find(filter, {sort: sortOrder});
+
+		return Reviews.find(filter, {sort: sortOrder, limit:limit});
+	},
+	notReady: function(){
+		var ready = Session.get('ready');
+		console.log(ready);
+		return !ready;
 	}
 });
 

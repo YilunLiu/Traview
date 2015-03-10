@@ -1,4 +1,5 @@
 Template.header.rendered = function () {
+
 };
 
 Template.header.helpers({
@@ -34,7 +35,8 @@ Template.header.helpers({
 
 Template.header.events({
 	'click .left': function(){
-		$('.left.sidebar').sidebar('toggle',{left: 'overlay'});
+		$('.left.sidebar').sidebar('toggle');
+		console.log('show')
 	},
 	'click .big.write.icon': function(){
 		Router.go('writeReview');
