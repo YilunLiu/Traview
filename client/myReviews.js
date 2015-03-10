@@ -9,7 +9,7 @@ Template.myReviews.helpers({
 		}
 	},
 	reviewsNumber: function() {
-		return Reviews.find().count();
+		return Reviews.find({authorId: Meteor.userId()}).count();
 	},
 	likesReceived: function() {
 		var total = 0;
