@@ -3,6 +3,11 @@
 	{{#each sortedFilteredReviews}}
 		{{> reviewItem}}
 	{{/each}}
+	{{#if hasMore}}
+		<div class="ui button hasMore">
+			Load More
+		</div>
+	{{/if}}
 </template>
 
 <template name="reviewMenu">

@@ -3,4 +3,6 @@ body{
   	color: #666666; 
   	text-align: left;
   	font-family: Helvetica, sans-serif;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
 }

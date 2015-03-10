@@ -34,15 +34,18 @@ Template.header.helpers({
 });
 
 Template.header.events({
-	'click .left': function(){
+	'click .left': function(e,template){
+		e.preventDefault();
 		$('.left.sidebar').sidebar('toggle');
 		console.log('show')
 	},
-	'click .big.write.icon': function(){
+	'click .big.write.icon': function(e,template){
+		e.preventDefault();
 		Router.go('writeReview');
 		woopra.track('ClickOnIcon');
 	},
-	'click #addChatBtn': function(){
+	'click #addChatBtn': function(e,template){
+		e.preventDefault();
 		$('#addChat').modal('show');
 	}
 });

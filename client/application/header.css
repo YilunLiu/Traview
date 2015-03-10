@@ -6,7 +6,9 @@
 	left: 0;
 	background: #ddd;
 	border-bottom: 1px solid #333;
+    -webkit-user-select:none;
 }
+
 
 
 #header .left{

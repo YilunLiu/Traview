@@ -46,11 +46,12 @@ Template.menu.helpers({
 });
 
 Template.menu.events({
-	'click a': function () {
+	'click a': function (e,template) {
 		$('.left.sidebar').sidebar('toggle');
 		console.log('hide');
 	},
-	'click .logoutButton' : function() {
+	'click .logoutButton' : function(e,template) {
+		e.preventDefault();
 		Meteor.logout(function(err){
 			if (err){
 				throwError(err.reason)
@@ -59,7 +60,8 @@ Template.menu.events({
 			}
 		})
 	},
-	'click #writeAReview': function(){
+	'click #writeAReview': function(e,template){
+		e.preventDefault();
 		if(Session.get('alternative')){
 			woopra.track('hasIconClick');
 		}else{

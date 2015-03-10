@@ -11,6 +11,11 @@ Template.reviewsList.rendered = function () {
 		Session.set('reviewsLimit',10);
 	}
 
+	var location = Session.get(locationValueKey);
+	var distance = 10000;
+	var reviewNumber = Reviews.find({loc:{$near:[location.loc[0], location.loc[1]], $maxDistance:distance}}).count();
+	Session.set('reviewNumber',reviewNumber);
+
 };
 
 Template.reviewsList.helpers({
@@ -19,7 +24,7 @@ Template.reviewsList.helpers({
 		var category = Session.get('category');
 		var limit = Session.get('reviewsLimit')
 		var location = Session.get(locationValueKey);
-		var distance = 1000;
+		var distance = 10000;
 
 		
 
@@ -43,13 +48,17 @@ Template.reviewsList.helpers({
 			sortOrder = {likeNumber: -1, createdTime : -1};
 		}
 
+		var reviews = Reviews.find(filter, {sort: sortOrder});
+		Session.set('reviewNumber',reviews.count());
 
 		return Reviews.find(filter, {sort: sortOrder, limit:limit});
 	},
-	notReady: function(){
-		var ready = Session.get('ready');
-		console.log(ready);
-		return !ready;
+	hasMore : function (){
+		var limit = Session.get('reviewsLimit');
+		var reviewNumber = Session.get('reviewNumber');
+		console.log(limit);
+		console.log(reviewNumber);
+		return limit < reviewNumber;
 	}
 });
 
