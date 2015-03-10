@@ -7,6 +7,10 @@ Template.messageItem.helpers({
 Template.chatPage.helpers({
 	messages: function(){
 		return this.messages;
+	},
+	title: function(){
+		console.log('yes');
+		return Meteor.users.findOne(_.without(this.users, Meteor.userId()).toString()).username;
 	}
 });
 
@@ -15,8 +19,7 @@ Template.chatPage.helpers({
 
 Template.chatPage.rendered = function () {
 
-	console.log(Meteor.users.find().count());
-	Session.setTemp('title',Meteor.users.findOne(_.without(this.data.users, Meteor.userId()).toString()).username);
+	$('#header').hide();
 	$('ui.fixed.sticky').sticky();
 }
 
@@ -31,6 +34,10 @@ Template.chatPage.events({
 			e.preventDefault();
 			sendMessage(template.data._id);
 		}
+	},
+	'click #backBtn': function(e,template){
+		history.back();
+		$('#header').show();
 	}
 });
 

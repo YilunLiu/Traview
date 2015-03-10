@@ -1,5 +1,4 @@
 #header {
-	padding: 10px;
 	width: 100%;
 	position: relative;
 	top: 0;
@@ -7,6 +6,7 @@
 	background: #ddd;
 	border-bottom: 1px solid #333;
     -webkit-user-select:none;
+    height: 50px;
 }
 
 
@@ -14,7 +14,8 @@
 #header .left{
 	display: inline-block;
 	position: relative;
-	top: -3px;
+	height: 100%;
+	padding: 10px;
 }
 
 #header .center{
@@ -23,10 +24,13 @@
 	width: 70%;
 	margin: 0px;
 	height: 25px;
+	padding: 10px;
+
 }
 
 #header .right{
 	display: inline-block;
-	position: relative;
-	float: right;
+	right: 0px;
+	height: 25px;
+	margin: 0px;
 }

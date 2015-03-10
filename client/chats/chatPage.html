@@ -1,4 +1,10 @@
 <template name="chatPage">
+	<div class="chatpage ui fixed sticky header">
+		<div class="left" id="backBtn"> &lt;Back </div>
+		<div class="ui center aligned header"> {{title}} </div>
+		<div class="right">
+		</div>
+	</div>
 	<div class="messages">
 		{{#each messages}}
 			{{> messageItem}}
@@ -8,7 +14,7 @@
 	<div class="input-group message-input ui fixed sticky action input">
 		    <input type="text" placeholder="Type some message here" id="message-field">
   			<button class="ui icon button" id="send-message-btn"><i class="large send icon"></i></button>
-		</div><!-- /input-group -->
+	</div><!-- /input-group -->
 </template>
 
 <template name="messageItem">

@@ -7,14 +7,20 @@
 
 <template name="chatItem">
 	<div class="chat">
-		<span class="Name">{{chatPerson}}</span>
+		<!-- <span class="Name">{{chatPerson}}</span>
 		<span class="LastMessage">{{modifiedLastestMessage}}</span>
-		<span class="LastUpdate">{{formatedLastestUpdate}}</span>
+		<span class="LastUpdate">{{formatedLastestUpdate}}</span> -->
 
 		<div class="picture">
+			{{#with imageObject}}
+				<img src="{{this.url store='profileImages'}}">
+			{{/with}}
 		</div>
 
 		<div class="content">
+			<div class="name">{{chatPerson}}</div>
+			<p>{{modifiedLastestMessage}}</p>
+			<div class="time">{{formatedLastestUpdate}}</div>
 		</div>
 	</div>
 </template>

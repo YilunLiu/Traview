@@ -1,6 +1,6 @@
 Template.chatsList.helpers({
 	chats: function () {
-		return Chats.find();
+		return Chats.find({},{lastestUpdate: -1});
 	}
 });
 Template.chatsList.rendered = function(){
@@ -8,7 +8,7 @@ Template.chatsList.rendered = function(){
 }
 
 Template.chatItem.events({
-	'click .Chat': function (event, template) {
+	'click .chat': function (event, template) {
 		event.preventDefault();
 		Router.go('chat',{_id: this._id});
 	}
@@ -27,6 +27,10 @@ Template.chatItem.helpers({
 	},
 	formatedLastestUpdate: function(){
 		return formatDate(this.lastestUpdate);
+	},
+	imageObject: function(){
+		user = Meteor.users.findOne(_.without(this.users, Meteor.userId()).toString());
+		return ProfileImages.findOne(user.profile.image);
 	}
 
 });

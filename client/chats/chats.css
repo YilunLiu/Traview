@@ -1,8 +1,32 @@
 .chat {
-	height: 80px;
+	height: 85px;
 	width: 100%;
 	border: solid 1px ;
 	border-collapse: collapse;
+	padding: 5px;
+}
+
+.chat .picture img{
+	margin: 5px 15px 5px 5px;
+	width: 60px;
+	height: 60px;
+	float: left;
+	border-radius: 500em;
+}
+
+
+.chat .content{
+	height: 100%;
+	width: auto;
+	overflow: hidden;
+}
+
+.chat .content .name {
+	font-size: 18px;
+}
+
+.chat .content p{
+	margin-bottom: 10px
 }
 
 .ChatsHeader{
