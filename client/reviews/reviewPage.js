@@ -41,6 +41,9 @@ Template.reviewPage.events({
 		$('#header').show();
 		if(!Meteor.userId()){
 			Router.go('/sign-in');
+			console.log(this);
+			console.log(template);
+			Session.set('previousLocation','/review/'+this._id);
 			return;
 		}
 		var chat = Chats.findOne({users: {$all: [Meteor.userId(), this.authorId]}});

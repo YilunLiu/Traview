@@ -48,7 +48,6 @@ Template.menu.helpers({
 Template.menu.events({
 	'click a': function (e,template) {
 		$('.left.sidebar').sidebar('toggle');
-		console.log('hide');
 	},
 	'click .logoutButton' : function(e,template) {
 		e.preventDefault();
@@ -59,13 +58,5 @@ Template.menu.events({
 				Router.go('home');
 			}
 		})
-	},
-	'click #writeAReview': function(e,template){
-		e.preventDefault();
-		if(Session.get('alternative')){
-			woopra.track('hasIconClick');
-		}else{
-			woopra.track('donthasIconClick');
-		}
 	}
 });

@@ -37,7 +37,6 @@ Template.header.events({
 	'click .left': function(e,template){
 		e.preventDefault();
 		$('.left.sidebar').sidebar('toggle');
-		console.log('show')
 	},
 	'click .big.write.icon': function(e,template){
 		e.preventDefault();

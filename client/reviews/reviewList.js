@@ -1,28 +1,37 @@
 Template.reviewsList.rendered = function () {
 	Session.set('title', 'Read Reviews');
-	if (_.isEmpty(Session.get('sort'))){
+
+
+
+
+	if (!Session.get('sort')){
 		Session.set('sort','Most Popular');
 	}
-	if (_.isEmpty(Session.get('category'))){
+	if (!Session.get('category')){
 		Session.set('category','All');
 	}
-	if (_.isEmpty(Session.get('reviewsLimit')))
-	{
+	if (!Session.get('reviewsLimit')){
 		Session.set('reviewsLimit',10);
 	}
 
-	var location = Session.get(locationValueKey);
-	var distance = 10000;
-	var reviewNumber = Reviews.find({loc:{$near:[location.loc[0], location.loc[1]], $maxDistance:distance}}).count();
-	Session.set('reviewNumber',reviewNumber);
 
 };
+console.log(Session.get('sort'));
+
+Template.reviewsList.events({
+	"click .loadMore": function(e,template){
+		e.preventDefault();
+		var limit = Session.get('reviewsLimit');
+		limit = limit + 10;
+		Session.set('reviewsLimit',limit);
+	}
+})
 
 Template.reviewsList.helpers({
 	sortedFilteredReviews: function () {
 		var sort = Session.get('sort');
 		var category = Session.get('category');
-		var limit = Session.get('reviewsLimit')
+		var limit = Session.get('reviewsLimit');
 		var location = Session.get(locationValueKey);
 		var distance = 10000;
 
@@ -56,8 +65,6 @@ Template.reviewsList.helpers({
 	hasMore : function (){
 		var limit = Session.get('reviewsLimit');
 		var reviewNumber = Session.get('reviewNumber');
-		console.log(limit);
-		console.log(reviewNumber);
 		return limit < reviewNumber;
 	}
 });
@@ -105,12 +112,12 @@ Template.reviewItem.rendered = function () {
 
 Template.reviewMenu.rendered = function () {
 	this.$('.dropdown').dropdown();
-	this.$('.category .dropdown').dropdown({
+	this.$('.category .dropdown').dropdown("set text", Session.get('category')).dropdown({
 		onChange: function(val,text){
 			Session.set('category',text);
 		}
 	});
-	this.$('.sort .dropdown').dropdown({
+	this.$('.sort .dropdown').dropdown("set text", Session.get('sort')).dropdown({
 		onChange: function(val,text){
 			Session.set('sort',text);
 		}

@@ -68,3 +68,9 @@
 .review-menu .category{
   display: inline-block;
 }
+
+.ui.button.loadMore {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 50px;
+}

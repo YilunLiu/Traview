@@ -25,11 +25,18 @@ Template.signIn.events({
 			return;
 		}
 
+		var previousState = Session.get('previousLocation');
 		Meteor.loginWithPassword(username, password, function(err){
 			if (err){
-				throwError(err.reason);
+				throwError("Sign in failed",err.reason);
 			} else {
-				history.back();
+				var previousState = Session.get('previousLocation');
+				if (_.isEmpty(previousState)){
+					history.back()
+				}
+				else{
+					Router.go(previousState);
+				}
 			}
 		});
 	}
