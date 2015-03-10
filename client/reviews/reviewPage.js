@@ -58,7 +58,7 @@ Template.reviewPage.events({
 					throwError('Unable to create a chat');
 				}
 				else {
-					chatId = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}})._id;
+					chatId = Chats.findOne({users: {$all: [Meteor.userId(), this.authorId]}})._id;
 					Router.go('chat',{_id: chatId});
 				}
 			});
