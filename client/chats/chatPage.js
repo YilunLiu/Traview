@@ -9,7 +9,6 @@ Template.chatPage.helpers({
 		return this.messages;
 	},
 	title: function(){
-		console.log('yes');
 		return Meteor.users.findOne(_.without(this.users, Meteor.userId()).toString()).username;
 	}
 });

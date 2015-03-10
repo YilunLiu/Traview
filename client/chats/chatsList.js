@@ -47,21 +47,22 @@ Template.initialChat.rendered = function(){
 				var chat = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}});
 				var chatId;
 				if (chat){
-					chatId = chat._id
+					chatId = chat._id;
+					Router.go('chat',{_id: chatId});
 				} else {
 					Meteor.call('createChat', Meteor.userId(), newChatUser._id, function(err, result){
-						console.log(chatId);
 						if (err){
-							throwError('Unable to create a chat');
+							throwError('Unable to create a chat',err.reason);
 						}
 						else {
-							chatId  = result; 
-							console.log(result);
+							chatId = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}})._id;
+							console.log(chatId);
+							Router.go('chat',{_id: chatId});
 						}
 					});
 				}
 
-				Router.go('chat',{_id: chatId});
+
 			}
 		}
 	});

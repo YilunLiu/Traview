@@ -16,7 +16,6 @@ Template.reviewsList.rendered = function () {
 
 
 };
-console.log(Session.get('sort'));
 
 Template.reviewsList.events({
 	"click .loadMore": function(e,template){

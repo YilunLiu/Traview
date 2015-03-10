@@ -50,21 +50,20 @@ Template.reviewPage.events({
 		var chatId;
 		if (chat){
 			chatId = chat._id
+			Router.go('chat',{_id: chatId});
 		} else {
 			Meteor.call('createChat', Meteor.userId(), this.authorId, function(err, result){
-				console.log(chatId);
 				if (err){
 					console.log(err);
 					throwError('Unable to create a chat');
 				}
 				else {
-					chatId  = result; 
-					console.log(result);
+					chatId = Chats.findOne({users: {$all: [Meteor.userId(), newChatUser._id]}})._id;
+					Router.go('chat',{_id: chatId});
 				}
 			});
 		}
 
-		Router.go('chat',{_id: chatId});
 	},
 	'click #backBtn' : function(e, template){
 		e.preventDefault();
