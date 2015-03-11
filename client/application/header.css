@@ -4,9 +4,12 @@
 	top: 0;
 	left: 0;
 	background: #ddd;
-	border-bottom: 1px solid #333;
     -webkit-user-select:none;
     height: 50px;
+
+
+    /*background-color: #7BA0A9;*/
+    background-color: #9DACB0;
 }
 
 

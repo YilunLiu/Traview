@@ -33,6 +33,10 @@
   cursor:pointer;
 }
 
+#findPlace {
+  background:  #637394;
+}
+
 #map #findPlace.error {
 	background: #fff0f0;
 	border-color: #dbb1b1;

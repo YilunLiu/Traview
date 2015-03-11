@@ -42,6 +42,10 @@ Template.menu.helpers({
 		} else {
 			return true;
 		} 
+	},
+	isActive: function(field){
+		var title = Session.get('title');
+		return title === field ? 'active' : '';
 	}
 });
 

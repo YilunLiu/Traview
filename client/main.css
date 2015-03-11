@@ -1,8 +1,27 @@
 body{
-	background: #eee;
-  	color: #666666; 
   	text-align: left;
-  	font-family: Helvetica, sans-serif;
+  	font-family: Verdana, Geneva, sans-serif;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 
+}
+
+
+.ColorRed {
+  background-color: #E45E56;
+}
+
+.ColorGreen {
+  background-color: #A3D39D;
+}
+
+.ColorLightBlue {
+  background-color: #7ACCC8;
+}
+
+.ColorDarkBlue {
+  background-color: #4AAAA5;
+}
+
+.ColorGrey {
+  background-color: #34404E;
 }

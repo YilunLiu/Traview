@@ -1,5 +1,5 @@
 <template name = "menu">
-	<div class="ui left thin sidebar vertical menu">
+	<div class="ui left thin large sidebar blue vertical menu" id="menu">
 		<div class="item profile">
 			{{#if currentUser}}
 				{{#with userImageObject}}
@@ -17,9 +17,9 @@
 		<div class="item">
 			Reviews
 			<div class="menu">
-				<a class= "item" href="{{pathFor 'changeLocation'}}">Change Location</a>
-		        <a class = "item" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
-		        <a class="item" href="{{pathFor 'writeReview'}}">Write a Review</a>
+				<a class="item {{isActive 'Change Location'}}" href="{{pathFor 'changeLocation'}}">Change Location</a>
+		        <a class ="item {{isActive 'Read Reviews'}}" href="{{pathFor 'reviewsList'}}">Read Reviews</a>
+		        <a class="item {{isActive 'Write a Review'}}" href="{{pathFor 'writeReview'}}">Write a Review</a>
 
 		    </div>
     	</div>
@@ -31,9 +31,9 @@
     		{{#if currentUser}}
 			My Account
 			<div class="menu">
-				<a class = "item" href="{{pathFor 'chatsList'}}">My Chats</a>
-				<a class = "item" href="{{pathFor 'myReviews'}}">My Reviews</a>
-				<a class = "item" href="{{pathFor 'changePassword'}}">Change Password</a>
+				<a class = "item {{isActive 'My Chats'}}" href="{{pathFor 'chatsList'}}">My Chats</a>
+				<a class = "item {{isActive 'My Reviews'}}" href="{{pathFor 'myReviews'}}">My Reviews</a>
+				<a class = "item {{isActive 'Change Password'}}" href="{{pathFor 'changePassword'}}">Change Password</a>
 		    </div>
 		    {{else}}
               <a href="/sign-in">Sign In</a>
@@ -42,8 +42,8 @@
 
 
 
-        <a class="item" href="{{pathFor 'help'}}">FAQs</a>
-        <a class="item" href="{{pathFor 'contactUs'}}">Contact Us</a>
+        <a class="item {{isActive 'FAQs'}}" href="{{pathFor 'help'}}">FAQs</a>
+        <a class="item {{isActive 'Contact Us'}}" href="{{pathFor 'contactUs'}}">Contact Us</a>
 
 
         {{#if currentUser}}

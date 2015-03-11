@@ -2,11 +2,20 @@
 #mapButtons{
 	position: fixed;
 	bottom: 20px;
-	width: 100%;
+	width: 84%;
+	margin-left: 8%;
 }
 
 #mapButtons .ui.button{
-	margin-left: 5%;
-	margin-right: 5%;
-	width: 40%
+	width: 50%;
+}
+
+#readReviews {
+	background-color: #7BA0A9;
+	border-right: 1px solid;
+}
+
+#writeReviews{
+	background-color: #7BA0A9;
+	color: #fff;
 }
