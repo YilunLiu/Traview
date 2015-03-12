@@ -63,15 +63,15 @@ Template.home.helpers({
 		return Math.floor(Math.random() * 2);
 	},
 	picPath1: function(){
-		return "/Welcome.png";
+		return "/Introduction//Welcome.png";
 	},
 	picPath2: function(){
-		return "/Introduction1.png";
+		return "/Introduction//Introduction1.png";
 	},
 	picPath3: function(){
-		return "/Introduction2.png";
+		return "/Introduction//Introduction2.png";
 	},
 	picPath4: function(){
-		return "/Introduction3.png";
+		return "/Introduction/Introduction3.png";
 	}
 })
