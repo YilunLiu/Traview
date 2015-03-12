@@ -19,6 +19,38 @@ Template.homepage.events({
 	}
 });
 
+Template.home.events({
+	'click #WelcomeImage': function(e,temp){
+		e.preventDefault();
+
+		$('#WelcomeImage').fadeOut();
+	},
+	'click #Introduction1': function(e,temp){
+		e.preventDefault();
+
+		$('#Introduction1').fadeOut();
+	},
+	'click #Introduction2': function(e,temp){
+		e.preventDefault();
+
+		$('#Introduction2').fadeOut();
+	},
+	'click #Introduction3': function(e,temp){
+		e.preventDefault();
+
+		$('#Introduction3').fadeOut();
+		Meteor.setTimeout(function(){
+			Session.setPersistent('notFirstime',true)}
+		,3000);
+	}
+
+});
+
+Template.home.helpers({
+	isFirstTime: function () {
+		return !Session.get('notFirstime');
+	}
+});
 
 Template.homepage.rendered = function () {
 	Session.setTemp('title','Homepage');

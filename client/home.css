@@ -3,3 +3,43 @@
 	width: 100%;
 	margin-top: 5%;
 }
+
+#WelcomeImage{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 5;
+	background-size: contain;
+}
+
+#Introduction1{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 4;
+	background-size: contain;
+}
+
+#Introduction2{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 3;
+	background-size: contain;
+}
+
+#Introduction3{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: 2;
+	background-size: contain;
+}

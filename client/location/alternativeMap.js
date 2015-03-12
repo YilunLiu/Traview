@@ -29,12 +29,11 @@ Template.alternativeMap.rendered = function () {
 
             };
             map = new google.maps.Map(document.getElementById("map"), mapOptions); 
-
             var currentReviewLocation = Session.get(locationValueKey);
             var center = new google.maps.LatLng( 32.8801705, -117.232095 );
             if (!_.isEmpty(currentReviewLocation)){
                 center = new google.maps.LatLng( currentReviewLocation.loc[1], currentReviewLocation.loc[0] );
-            }
+            } 
             map.setCenter(center);
 
             geocoder = new google.maps.Geocoder();
@@ -127,6 +126,45 @@ Template.alternativeMap.events({
     },
     'click .centerMarker': function(e,template){
         woopra.track('HomeBUnsuccessfulClick');
+    },
+    'keypress #addressField': function(e, template){
+        if (e.keyCode == '13'){
+            e.preventDefault();
+            var address = $('#addressField').val();
+
+            if (_.isEmpty(address)){
+                var errorField = Session.get(errorFieldKey);
+                errorField.addressField = "No address entered";
+                Session.set(errorFieldKey, errorField);
+                return;
+            } else {
+                var errorField = Session.get(errorFieldKey);
+                Session.set(errorFieldKey, _.omit(errorField,'addressField'), errorField);
+            }
+
+            geocoder.geocode( {'address': address}, function(result, status){
+                if (status == google.maps.GeocoderStatus.OK){
+                    map.setCenter(result[0].geometry.location);
+
+                    var names = result[0].address_components[0].long_name.split(",")
+
+                     
+                    infowindow.setContent(names[0]);
+                    infowindow.open(map)
+
+                    var searchResult = {
+                        loc: [result[0].geometry.location.D, result[0].geometry.location.k],
+                        name: names[0]
+                    }
+
+                    Session.setTemp(searchResultKey, searchResult);
+                    Session.set('afterDrag',false);
+                    
+                } else {
+                    throwError("No such place found","Did you type it correctly?");
+                }
+            })
+        }
     }
 })
 

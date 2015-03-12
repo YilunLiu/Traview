@@ -32,7 +32,7 @@ Template.reviewsList.helpers({
 		var category = Session.get('category');
 		var limit = Session.get('reviewsLimit');
 		var location = Session.get(locationValueKey);
-		var distance = 10000;
+		var distance = 10/3959*1000;
 
 		
 

@@ -1,5 +1,11 @@
 
 <template name="home">
+		{{#if isFirstTime}}
+			<img src="/Welcome.png" id="WelcomeImage">
+			<img src="/Introduction1.png" id="Introduction1">
+			<img src="/Introduction2.png" id="Introduction2">
+			<img src="/Introduction3.png" id="Introduction3">
+		{{/if}}
 		{{>alternativeHomepage}}
 </template>
 
