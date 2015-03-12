@@ -76,8 +76,8 @@ Template.reviewItem.helpers({
 		return this.category;
 	},
 	modifiedComment: function() {
-		if (this.comment.length > 60){
-			return this.comment.substr(0,60)+"..."
+		if (this.comment.length > 50){
+			return this.comment.substr(0,50)+"..."
 		} else if (this.comment.length == 0){
 			return "No comment here";
 		}
