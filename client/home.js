@@ -63,15 +63,15 @@ Template.home.helpers({
 		return Math.floor(Math.random() * 2);
 	},
 	picPath1: function(){
-		return process.env.PWD+"/public/Introduction/Welcome.png";
+		return "/public/Introduction/Welcome.png";
 	},
 	picPath2: function(){
-		return process.env.PWD+"/public/Introduction/Introduction1.png";
+		return "/public/Introduction/Introduction1.png";
 	},
 	picPath3: function(){
-		return process.env.PWD+"/public/Introduction/Introduction2.png";
+		return "/public/Introduction/Introduction2.png";
 	},
 	picPath4: function(){
-		return process.env.PWD+"/public/Introduction/Introduction3.png";
+		return "/public/Introduction/Introduction3.png";
 	}
 })
