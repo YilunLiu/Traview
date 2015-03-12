@@ -13,7 +13,7 @@ Template.myReviews.helpers({
 	},
 	likesReceived: function() {
 		var total = 0;
-		var reviews = Reviews.find().fetch();
+		var reviews = Reviews.find({authorId: Meteor.userId()}).fetch();
 		for (var i in reviews){
 			if (reviews[i].likes)
 			{
