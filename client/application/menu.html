@@ -1,5 +1,5 @@
 <template name = "menu">
-	<div class="ui left thin large sidebar blue vertical menu" id="menu">
+	<div class="ui left large thin sidebar blue vertical menu" id="menu">
 		<div class="item profile">
 			{{#if currentUser}}
 				{{#with userImageObject}}
@@ -12,9 +12,10 @@
 		</div>
 
 
-		<a class="item" href="/">Homepage</a>
+		<a class="item" href="/"><i class="home icon"></i>Homepage</a>
 
 		<div class="item">
+			<i class="icon list"></i>
 			Reviews
 			<div class="menu">
 				<a class="item {{isActive 'Change Location'}}" href="{{pathFor 'changeLocation'}}">Change Location</a>
@@ -29,6 +30,7 @@
         
     	<div class="item">
     		{{#if currentUser}}
+    		<i class="user icon"></i>
 			My Account
 			<div class="menu">
 				<a class = "item {{isActive 'My Chats'}}" href="{{pathFor 'chatsList'}}">My Chats</a>
@@ -42,8 +44,10 @@
 
 
 
-        <a class="item {{isActive 'FAQs'}}" href="{{pathFor 'help'}}">FAQs</a>
-        <a class="item {{isActive 'Contact Us'}}" href="{{pathFor 'contactUs'}}">Contact Us</a>
+        <a class="item {{isActive 'FAQs'}}" href="{{pathFor 'help'}}">
+    		<i class="help icon"></i>FAQs</a>
+        <a class="item {{isActive 'Contact Us'}}" href="{{pathFor 'contactUs'}}">
+    		<i class="info icon"></i>Contact Us</a>
 
 
         {{#if currentUser}}

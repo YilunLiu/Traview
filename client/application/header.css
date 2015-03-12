@@ -3,13 +3,12 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	background: #ddd;
     -webkit-user-select:none;
     height: 50px;
 
 
     /*background-color: #7BA0A9;*/
-    background-color: #9DACB0;
+    background-color: #C0C9D3	;
 }
 
 
@@ -24,7 +23,7 @@
 #header .center{
 	display: inline-block;
 	font-size: 20px;
-	width: 70%;
+	width: 65%;
 	margin: 0px;
 	height: 25px;
 	padding: 10px;

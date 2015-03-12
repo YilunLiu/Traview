@@ -1,9 +1,10 @@
 .chat {
 	height: 85px;
-	width: 100%;
-	border: solid 1px ;
+	width: 97%;
+	border-bottom: solid 1px #aaa;
 	border-collapse: collapse;
 	padding: 5px;
+	margin: 1%;
 }
 
 .chat .picture img{

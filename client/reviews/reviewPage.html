@@ -18,10 +18,7 @@
 			{{/with}}
 
 			<div class="like">
-				<div class="ui small labeled icon button">
-            		<i class="{{liked}} heart icon"></i>
-  					{{likeText}}
-				</div>
+            	<i class="{{liked}} big red heart icon"></i>
 			</div>
 
 			<div class="description">
@@ -66,7 +63,7 @@
 </template>
 
 <template name="reviewPageTag">
-	<div class="medium ui label">
+	<div class="medium ui label" id="tag">
 		{{this}}
 	</div>
 </template>

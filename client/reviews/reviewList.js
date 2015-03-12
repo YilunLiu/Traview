@@ -122,3 +122,11 @@ Template.reviewMenu.rendered = function () {
 		}
 	});
 };
+
+Template.reviewTag.helpers({
+	randomColor: function () {
+		var colors = ['teal','blue',''];
+		var randomNumber = Math.floor(Math.random()*3);
+		return colors[randomNumber];
+	}
+});

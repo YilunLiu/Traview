@@ -1,12 +1,21 @@
 .review-card {
-	border-color: #333;
-	border-width: 1px;
-	border-style: solid;
 	padding: 5px;
+	border-radius: 1em;
+    background-color: #eee;
 }
 
-.header {
-	height: 40px;
+.review-card .header {
+	width: 100%;
+	position: relative;
+	top: 0;
+	left: 0;
+    -webkit-user-select:none;
+    height: 50px;
+    padding: 5px;
+}
+
+.like {
+	padding: 5px;
 }
 
 .review-card .header .left {
@@ -17,6 +26,7 @@
 	display: inline-block;
 	height: 100%
 }
+
 
 .review-card .header .center {
 	text-align: center;
@@ -76,6 +86,7 @@
 
 .review-card .content .extra{
 	position: relative;
+	margin-bottom: 10px;
 }
 
 .review-card .content .extra .tags {
@@ -97,4 +108,12 @@
 
 .ui.model.small {
 	height: auto;
+}
+
+.bottom-button{
+	margin-bottom: 15px;
+}
+
+#chat-btn {
+	background-color: #0092D7;
 }

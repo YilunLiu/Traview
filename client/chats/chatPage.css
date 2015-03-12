@@ -41,8 +41,7 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	background: #ddd;
-	border-bottom: 1px solid #333;
+	background: #BACDD2;
     -webkit-user-select:none;
     height: 50px;
 }

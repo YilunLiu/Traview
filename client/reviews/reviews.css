@@ -1,10 +1,8 @@
 .review {
-  height: 110px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #000;
-  border-collapse: collapse;
-  margin-bottom: 10px;
+  height: 130px;
+  border-top: 4px #355373  solid;
+  margin-bottom: 35px;
+  padding: 5px;
 }
 
 .review .image{
@@ -45,6 +43,7 @@
 
 .review .content .description {
   margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .review .content .meta {
@@ -52,8 +51,7 @@
 }
 
 .review .content .extra {
-  position: absolute;
-  bottom: 1%; 
+
 }
 
 
@@ -73,8 +71,8 @@
 
 .review-menu .category{
   display: inline-block;
-  width: 49%;
-  padding-left: 40px;
+  width: 45%;
+  padding-left: 30px;
   border-right: 2px solid #000;
 }
 
@@ -88,7 +86,13 @@
 .ui.button.loadMore {
   width: 100%;
   margin-bottom: 10px;
-  height: 50px;
+  height: 40px;
+  background-color: #CCE1E4;
+}
+
+#tag {
+  background-color: #DBECE5;
+  font-size: 8px;
 }
 
 
