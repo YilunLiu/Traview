@@ -61,5 +61,17 @@ Template.homepage.rendered = function () {
 Template.home.helpers({
 	useAlternative: function(){
 		return Math.floor(Math.random() * 2);
+	},
+	picPath1: function(){
+		return "/Welcome.png";
+	},
+	picPath2: function(){
+		return "/Introduction1.png";
+	},
+	picPath3: function(){
+		return "/Introduction2.png";
+	},
+	picPath4: function(){
+		return "/Introduction3.png";
 	}
 })
